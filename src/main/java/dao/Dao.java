@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import dto.BookDto1;
+import dto.BookDto2;
 
 public class Dao {
 	private static Connection getConnection() throws URISyntaxException, SQLException {
@@ -37,6 +38,25 @@ public class Dao {
 			pstmt.setString(2, book.getName());
 			pstmt.setString(3, book.getAuther());
 			pstmt.setString(4, book.getPublisher());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static int delete(BookDto2 book) {
+		String sql = "DELETE FROM book WHERE id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book.getId());
 			
 			result = pstmt.executeUpdate();
 		}catch(SQLException | URISyntaxException e) {
