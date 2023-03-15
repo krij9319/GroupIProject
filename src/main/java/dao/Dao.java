@@ -109,6 +109,7 @@ public class Dao {
 			pstmt.setString(2, book.getName());
 			pstmt.setString(3, book.getAuther());
 			pstmt.setString(4, book.getPublisher());
+			pstmt.setInt(5, book.getId());
 			
 			result = pstmt.executeUpdate();
 		}catch(SQLException | URISyntaxException e) {
