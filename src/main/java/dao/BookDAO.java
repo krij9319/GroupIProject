@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import dto.Account;
 import util.GenerateHashedPw;
 import util.GenerateSalt;
-public class bookDAO {
+public class BookDAO {
 
 	private static Connection getConnection() throws URISyntaxException, SQLException {
 		try {

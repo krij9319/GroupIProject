@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>図書管理</title>
+<title>削除成功</title>
 </head>
 <body>
-<a href="accountdel">削除する</a>
+	<h1>削除完了!</h1>
+	<a href="accountdel">続けて削除</a>
+    <a href="./">メニューに戻る</a>
 </body>
 </html>
