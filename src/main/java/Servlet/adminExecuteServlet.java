@@ -1,4 +1,4 @@
-package Servret;
+package Servlet;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.bookDAO;
+import dao.BookDAO;
 import dto.Account;
 
 /**
@@ -38,7 +38,7 @@ public class adminExecuteServlet extends HttpServlet {
 		Account account = (Account)session.getAttribute("input_data");
 		
 		// 登録処理
-		int result = bookDAO.registerAccount(account);
+		int result = BookDAO.registerAccount(account);
 		
 		String path = "";
 		if(result == 1) {

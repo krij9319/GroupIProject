@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>図書管理</title>
+<title>削除失敗</title>
 </head>
 <body>
-<a href="accountdel">削除する</a>
+<h1>削除に失敗しました。メールアドレスを確認してください。</h1>
+<a href="accountdel">戻る</a>
 </body>
 </html>

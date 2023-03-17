@@ -1,4 +1,4 @@
-package Servret;
+package Servlet;
 
 import java.io.IOException;
 
@@ -8,21 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import dto.Account;
 
 /**
- * Servlet implementation class adminConfirmServlet
+ * Servlet implementation class del
  */
-@WebServlet("/adminConfirmServlet")
-public class adminConfirmServlet extends HttpServlet {
+@WebServlet("/accountdel")
+public class accountdel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public adminConfirmServlet() {
+    public accountdel() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,26 +28,9 @@ public class adminConfirmServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
-		String name = request.getParameter("name");
-		String mail = request.getParameter("email");
-		String pw = request.getParameter("pw");
-		String tel = request.getParameter("tel");
-		
-		Account account = new Account(-1, name, mail, null, pw, null, tel);
-		
-		// セッションスコープのインスタンス取得
-		HttpSession session = request.getSession();
-		
-		// セッションスコープに値の保存
-		// 第1引数：キー
-		// 第2引数：保存する値
-		session.setAttribute("input_data", account);
-		
-		String view = "WEB-INF/view/adminconfirm.jsp";
+		String view = "WEB-INF/view/accountdel.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request, response);	
+		dispatcher.forward(request, response);
 	}
 
 	/**
