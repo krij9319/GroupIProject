@@ -1,10 +1,10 @@
 package dto;
 
-public class KuchikomiDto {
+public class KuchikomiDto1 {
 	private int id;
 	private String hyouka;
 	
-	public KuchikomiDto(int id, String hyouka) {
+	public KuchikomiDto1(int id, String hyouka) {
 		super();
 		this.id = id;
 		this.hyouka = hyouka;
