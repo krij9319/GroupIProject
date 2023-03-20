@@ -1,9 +1,9 @@
 package dto;
 
-public class ReturnDto {
+public class LendDto2 {
 	private int book_id;
 
-	public ReturnDto(int book_id) {
+	public LendDto2(int book_id) {
 		super();
 		this.book_id = book_id;
 	}
@@ -14,5 +14,5 @@ public class ReturnDto {
 
 	public void setBook_id(int book_id) {
 		this.book_id = book_id;
-	}
+	}	
 }
