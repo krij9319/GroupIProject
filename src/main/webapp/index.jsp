@@ -7,6 +7,6 @@
 <title>図書管理</title>
 </head>
 <body>
-<a href="accountdel">削除する</a>
+<a href="SelectBook">一覧</a>
 </body>
 </html>
