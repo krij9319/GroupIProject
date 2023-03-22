@@ -12,6 +12,8 @@ import java.util.List;
 
 import dto.BookDto1;
 import dto.BookDto2;
+import dto.ReturnDto;
+import dto.ReturnDto2;
 
 public class Dao {
 	private static Connection getConnection() throws URISyntaxException, SQLException {
@@ -110,6 +112,45 @@ public class Dao {
 			pstmt.setString(3, book.getAuther());
 			pstmt.setString(4, book.getPublisher());
 			pstmt.setInt(5, book.getId());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static int returnbook(ReturnDto book) {
+		String sql = "DELETE FROM book_lend WHERE book_id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static int returnday(ReturnDto2 day) {
+		String sql = "UPDATE book_lend SET returnday = ? WHERE book_id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setString(1, day.getReturnday());
+			pstmt.setInt(2, day.getBook_id());
 			
 			result = pstmt.executeUpdate();
 		}catch(SQLException | URISyntaxException e) {
