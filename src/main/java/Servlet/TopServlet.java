@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.AccountDAO;
 import dto.Account;
 
 /**
- * Servlet implementation class adminExecuteServlet
+ * Servlet implementation class TopServlet
  */
-@WebServlet("/adminExecuteServlet")
-public class adminExecuteServlet extends HttpServlet {
+@WebServlet("/TopServlet")
+public class TopServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public adminExecuteServlet() {
+    public TopServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +31,22 @@ public class adminExecuteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//処理の始めにログイン状態のチェックを行う。
 		HttpSession session = request.getSession();
+		Account account = (Account)session.getAttribute("user");
 
-		// 入力データの取得
-		Account account = (Account)session.getAttribute("input_data");
-		
-		// 登録処理
-		int result = AccountDAO.registerAccount(account);
-		
-		String path = "";
-		if(result == 1) {
-			// 登録に成功したので、sessionのデータを削除
-			session.removeAttribute("input_data");
-			
-			path = "WEB-INF/view/adminsuccess.jsp";
-		} else {
-			// 失敗した場合はパラメータ付きで登録画面に戻す
-			path = "WEB-INF/view/adminform.jsp?error=1";
+		if(account == null){
+			//セッションの中身がnullであれば不正アクセスと判断し
+			//ログイン画面へ戻る
+			String view = "./";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+			dispatcher.forward(request, response);
+			return;
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		
+		// 正常な画面を表示
+		String view = "WEB-INF/view/menu.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
 

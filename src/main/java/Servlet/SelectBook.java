@@ -1,6 +1,7 @@
 package Servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,22 +9,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import dao.AccountDAO;
-import dto.Account;
+import dao.BookDAO;
+import dto.BookDto1;
 
 /**
- * Servlet implementation class adminExecuteServlet
+ * Servlet implementation class SelectQuiz
  */
-@WebServlet("/adminExecuteServlet")
-public class adminExecuteServlet extends HttpServlet {
+@WebServlet("/SelectBook")
+public class SelectBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public adminExecuteServlet() {
+    public SelectBook() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +32,14 @@ public class adminExecuteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-
-		// 入力データの取得
-		Account account = (Account)session.getAttribute("input_data");
+		// DBから全件データを取得
+		List<BookDto1> bookList = BookDAO.selectAllbook();
 		
-		// 登録処理
-		int result = AccountDAO.registerAccount(account);
+		// 取得したリストをリクエストスコープに保管(JSPに渡すため)
+		request.setAttribute("list", bookList);
 		
-		String path = "";
-		if(result == 1) {
-			// 登録に成功したので、sessionのデータを削除
-			session.removeAttribute("input_data");
-			
-			path = "WEB-INF/view/adminsuccess.jsp";
-		} else {
-			// 失敗した場合はパラメータ付きで登録画面に戻す
-			path = "WEB-INF/view/adminform.jsp?error=1";
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		String view = "WEB-INF/view/book_list.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
 

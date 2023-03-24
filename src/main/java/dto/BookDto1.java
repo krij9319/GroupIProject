@@ -1,5 +1,4 @@
 package dto;
-
 public class BookDto1 {
 	private int id;
 	private int isbn;
