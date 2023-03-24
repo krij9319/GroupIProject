@@ -46,8 +46,9 @@ public class BookDAO {
 					String name = rs.getString("name");
 					String auther = rs.getString("auther");
 					String publisher = rs.getString("publisher");
+					String exam_Date = rs.getString("exam_Date");
 
-					BookDto1 book = new BookDto1(id,isbn,name,auther,publisher);
+					BookDto1 book = new BookDto1(id,isbn,name,auther,publisher,exam_Date);
 					
 					result.add(book);
 				}
