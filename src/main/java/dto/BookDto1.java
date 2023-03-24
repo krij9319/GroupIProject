@@ -1,19 +1,20 @@
 package dto;
-
 public class BookDto1 {
 	private int id;
 	private int isbn;
 	private String name;
 	private String auther;
 	private String publisher;
+	private String examDate;
 	
-	public BookDto1(int id, int isbn, String name, String auther, String publisher) {
+	public BookDto1(int id, int isbn, String name, String auther, String publisher, String examDate) {
 		super();
 		this.id = id;
 		this.isbn = isbn;
 		this.name = name;
 		this.auther = auther;
 		this.publisher = publisher;
+		this.examDate = examDate;
 	}
 
 	public int getId() {
@@ -55,4 +56,13 @@ public class BookDto1 {
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
+
+	public String getExamDate() {
+		return examDate;
+	}
+
+	public void setExamDate(String examDate) {
+		this.examDate = examDate;
+	}
+
 }

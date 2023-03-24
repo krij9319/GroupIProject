@@ -23,16 +23,19 @@
 			<%
 		List<BookDto1> list = (List<BookDto1>)request.getAttribute("list");
 		int index = 1;
-		for(BookDto1 ee : list){
+		for(BookDto1 b : list){
+
 	%>
 		<tr>
-			<td><%=ee.getId() %></td>
-			<td><%=ee.getIsbn()%></td>
-			<td><%=ee.getName() %></td>
-			<td><%=ee.getAuther() %></td>
-			<td><%=ee.getPublisher() %></td>
+			<td><%=b.getId() %></td>
+			<td><%=b.getIsbn()%></td>
+			<td><%=b.getName() %></td>
+			<td><%=b.getAuther() %></td>
+			<td><%=b.getPublisher() %></td>
+            <td><%=b.getExamDate() %></td>
 		</tr>
 		<%} %>
-</body>
+		</table>
 <a href="./">戻る</a>
+</body>
 </html>
