@@ -145,15 +145,14 @@ public class Dao {
 	}
 	
 	public static int returnday(ReturnDto2 day) {
-		String sql = "UPDATE book_lend SET returnday = ? WHERE book_id = ?";
+		String sql = "UPDATE book_lend SET returnday = NOW() WHERE book_id = ?";
 		int result = 0;
 		
 		try(
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
-			pstmt.setString(1, day.getReturnday());
-			pstmt.setInt(2, day.getBook_id());
+			pstmt.setInt(1, day.getBook_id());
 			
 			result = pstmt.executeUpdate();
 		}catch(SQLException | URISyntaxException e) {
