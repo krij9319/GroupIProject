@@ -14,3 +14,28 @@ header img {
   display: inline-block;
 }
 
+span{
+ margin-left: 250px;
+}
+
+.osirase {
+  margin-top: 130px;
+  font-size: 20px;
+}
+
+.img1 {
+  width: 350px;
+}
+
+.img2{
+  width: 300px;
+}
+
+.img3{
+  margin-left :300px;	
+  width: 160px;
+}
+div span{
+	margin-left: 50px;
+	margin-bottom: 50px;
+}
