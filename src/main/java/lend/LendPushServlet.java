@@ -1,6 +1,7 @@
-package book;
+package lend;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,19 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import dto.BookDto1;
+import dto.LendDto1;
+import dto.LendDto2;
 
 /**
- * Servlet implementation class Book_RegisterPushServlet
+ * Servlet implementation class LendPushServlet
  */
-@WebServlet("/Book_RegisterPushServlet")
-public class Book_RegisterPushServlet extends HttpServlet {
+@WebServlet("/LendPushServlet")
+public class LendPushServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Book_RegisterPushServlet() {
+    public LendPushServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,21 +36,32 @@ public class Book_RegisterPushServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		try {
-			int isbn = Integer.parseInt(request.getParameter("isbn"));
-			String name = request.getParameter("name");
-			String auther = request.getParameter("auther");
-			String publisher = request.getParameter("publisher");
-			String register_day = request.getParameter("register_day");
+			int account_id = Integer.parseInt(request.getParameter("account_id"));
+			int book_id = Integer.parseInt(request.getParameter("book_id"));
+			String scheduledday = request.getParameter("scheduledday");	
+			Date day = new Date();
 			
-			BookDto1 book = new BookDto1(-1,isbn,name,auther,publisher,register_day);
+			LendDto1 book1 = new LendDto1(-1,account_id,book_id);
+			LendDto2 book2 = new LendDto2(book_id);
 			
-			int result = Dao.register(book);
+			int result = Dao.lendday(book1);
 			
-			if(result == 1) {
-				String view = "WEB-INF/view/register_success.jsp";			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+			// 図書IDを元にDBを検索して、本の登録日を取得する
+			Date days = Dao.date(book2);
+			// 取得した登録日を元に1年以内かどうかで新/旧を判断する
+			if(day.before(days)) {
+				// 判断に応じてlend7 or lend14 を呼び出して貸出テーブルにINSERT
+				result = Dao.lend7(book2);
+			}else {
+				result = Dao.lend14(book2);
+			}
+			
+			if(result >= 1) {
+				String view = "WEB-INF/view/lend_success.jsp";
+				RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}else {
-				String view = "WEB-INF/view/book_register.jsp?error=1";
+				String view = "WEB-INF/view/lendinput.jsp?error=1";
 				RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}

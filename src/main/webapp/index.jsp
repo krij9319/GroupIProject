@@ -8,5 +8,6 @@
 </head>
 <body>
 <a href="accountdel">削除する</a>
+<a href="LendServlet">貸出</a>
 </body>
 </html>
