@@ -15,27 +15,42 @@ header img {
 }
 
 span{
- margin-left: 250px;
+ margin-left: 180px;
+}
+
+span:nth-of-type(2) {
+  margin-left: 370px;
+  margin-right: 90px;
 }
 
 .osirase {
   margin-top: 130px;
   font-size: 20px;
 }
-
-.img1 {
-  width: 350px;
+.img1{
+  width: 270px;
+  height: 230px;
+  margin-top: 10px;
 }
 
 .img2{
-  width: 300px;
+  width: 250px;
+  height: 220px;
+  margin-top: 10px;
 }
 
 .img3{
-  margin-left :300px;	
-  width: 160px;
+  width: 210px;
+  height: 190px;
+  margin-top: 20px;
 }
-div span{
-	margin-left: 50px;
-	margin-bottom: 50px;
+
+.haba {
+  justify-content: center;
+  display: flex;
+  margin-left: 60px;
+}
+
+.haba img {
+  margin-right: 110px;
 }
