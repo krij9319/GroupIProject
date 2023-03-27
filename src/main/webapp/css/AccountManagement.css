@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+/* アカウント管理 */
+
+#header {
+    background-color: #2AD535; /* 例：赤色 */
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0; /* 重なり順序 */
+     text-align: center;	
+  }
+  
+  header img {
+    display: inline-block;
+  }
+  
+span:nth-of-type(1){
+    margin-left: 210px;
+}
+   
+span:nth-of-type(2) {
+    margin-left: 250px;
+    margin-right: 170px;
+}
+
+
+.img4{
+    width: 230px;
+    height: 200px;
+    margin-top: 190px;
+  }
+  
+  .img5{
+    width: 230px;
+    height: 230px;
+    margin-top: 190px;
+  }
+  
+  .img6{
+    width: 210px;
+    height: 190px;
+    margin-top: 190px;
+  }
+  
+  
+  .haba {
+    justify-content: center;
+    display: flex;
+    margin-left: 60px;
+  }
+  
+  .haba img {
+    margin-right: 110px;
+  }
+
+  .back{
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 150px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 100vh;
+    text-align: center;
+    border: solid 3px gray;/*線*/
+    background-color: yellow;
+  }

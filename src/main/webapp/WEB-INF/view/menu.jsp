@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>メニュー</title>
-<meta name="viewport" content="width=device-width">
+<title>トップページ</title>
+
+ <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel ="stylesheet"href="css/menu.css">
-  <link rel ="stylesheet"href="css/hamburger.css">
+<link rel ="stylesheet"href="css/adominmenu.css">
+<link rel ="stylesheet"href="css/hamburger.css">
 </head>
-  <body>
+ <body>
 	<header id="header">
  	<p>
  	 <img src="./img/グループ 9.png" alt="タイトル" width="400" height="65">
@@ -28,15 +30,24 @@
     </div>
     
   <!--メニュー画面-->
+
+  <img class="osirase" src="./img/グループ 10.png" alt="おしらせ">
+
+  <div class="haba">
 	<a href="">
-  		<img src="./img/画像 1.png" alt="本の一覧">
+  		<img class="img1" src="./img/図1.png" alt="図書一覧">
 	</a>
     <a href="">
-  		<img src="./img/画像 4.png" alt="本の一覧">
+  		<img class="img2" src="./img/図3.png" alt="履歴">
 	</a>
 	<a href="">
-  		<img src="./img/画像 6.png" alt="本の一覧">
+  		<img class="img3" src="./img/画像 6.png" alt="ログアウト">
 	</a>
+</div>
+    <span>図書一覧</span>
+    <span>履歴</span>
+    <span>ログアウト</span>
+
 	<script src="./JavaScript/hamburger.js"></script>
 </body>
 </html>

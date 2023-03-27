@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+#header {
+    background-color: #2AD535; /* 例：赤色 */
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0; /* 重なり順序 */
+     text-align: center;	
+  }
+  
+  header img {
+    display: inline-block;
+  }
+  
+  span{
+   margin-left: 170px;
+  }
+  
+  span:nth-of-type(2) {
+    margin-left: 210px;
+    margin-right: 90px;
+  }
+
+  span:nth-of-type(4) {
+    margin-left: 180px;
+  }
+  
+  .img1{
+    width: 240px;
+    height: 220px;
+    margin-top: 210px;
+  }
+
+  .img2{
+    width: 240px;
+    height: 220px;
+    margin-top: 210px;
+  }
+
+  .img3{
+    width: 200px;
+    height: 190px;
+    margin-top: 210px;
+  }
+
+  .img4{
+    width: 180px;
+    height: 180px;
+    margin-top: 210px;
+  }
+
+  .haba {
+    justify-content: center;
+    display: flex;
+    margin-left: 60px;
+  }
+  
+  .haba img {
+    margin-right: 70px;
+  }
+
+  .back{
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 150px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 100vh;
+    text-align: center;
+    border: solid 3px gray;/*線*/
+    background-color: yellow;
+  }

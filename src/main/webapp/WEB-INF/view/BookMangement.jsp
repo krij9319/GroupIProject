@@ -28,19 +28,28 @@
     </div>
     
   <!--メニュー画面-->
+  
+ <div class="haba">
 	<a href="">
-  		<img src="./img/画像 5.png" alt="管理者登録">
+  		<img class="img1" src="./img/NoPath.png" alt="本の登録">
 	</a>
     <a href="">
-  		<img src="./img/一覧.png" alt="管理者・利用者の一覧">
+  		<img class="img2" src="./img/図1.png" alt="図書一覧">
 	</a>
 	<a href="">
-  		<img src="./img/画像 8.png" alt="管理者・利用者の削除">
+  		<img class="img3" src="./img/画像 8.png" alt="図書削除">
 	</a>
-	
-   <span>テキスト4</span>
-   <span>テキスト5</span>
-   <span>テキスト6</span>
+    <a href="">
+        <img class="img4" src="./img/画像 9.png" alt="本の編集">
+  </a>
+</div>
+
+   <span>本の登録</span>
+   <span>図書一覧</span>
+   <span>図書削除</span>
+   <span>本の編集</span>
+   <br>
+   <div class="back"><a href="">戻る</a></div>
    
 	<script src="./JavaScript/hamburger.js"></script>
 </body>
