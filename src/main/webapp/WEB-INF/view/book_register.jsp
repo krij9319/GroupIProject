@@ -25,7 +25,6 @@
 			タイトル<input type="text" name="name"><br>
 			著者<input type="text" name="auther"><br>
 			出版社<input type="text" name="publisher"><br>
-			登録日<input type="date" name="register_day"><br>
 			<div class="main-end">
 				<p>この内容で登録しますか？</p>
 			</div>
@@ -39,7 +38,6 @@
 			タイトル<input type="text" name="name"><br>
 			著者<input type="text" name="auther"><br>
 			出版社<input type="text" name="publisher"><br>
-			登録日<input type="date" name="register_day"><br>
 			<div class="main-end">
 				<p>この内容で登録しますか？</p>
 			</div>

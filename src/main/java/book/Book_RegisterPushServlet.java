@@ -44,7 +44,8 @@ public class Book_RegisterPushServlet extends HttpServlet {
 			int result = Dao.register(book);
 			
 			if(result == 1) {
-				String view = "WEB-INF/view/register_success.jsp";			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+				String view = "WEB-INF/view/register_success.jsp";			
+				RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}else {
 				String view = "WEB-INF/view/book_register.jsp?error=1";

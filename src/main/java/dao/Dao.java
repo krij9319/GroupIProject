@@ -8,10 +8,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import dto.BookDto1;
 import dto.BookDto2;
+import dto.LendDto1;
+import dto.LendDto2;
 import dto.ReturnDto;
 import dto.ReturnDto2;
 
@@ -73,7 +76,7 @@ public class Dao {
 	}
 	
 	public static List<BookDto1> search(String name){
-		String sql = "SELECT id,isbn,name,auther,publisher FROM book WHERE name LIKE ?";
+		String sql = "SELECT * FROM book WHERE name LIKE ?";
 		List<BookDto1> result = new ArrayList<>();
 		
 		try(
@@ -142,15 +145,14 @@ public class Dao {
 	}
 	
 	public static int returnday(ReturnDto2 day) {
-		String sql = "UPDATE book_lend SET returnday = ? WHERE book_id = ?";
+		String sql = "UPDATE book_lend SET returnday = NOW() WHERE book_id = ?";
 		int result = 0;
 		
 		try(
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
-			pstmt.setString(1, day.getReturnday());
-			pstmt.setInt(2, day.getBook_id());
+			pstmt.setInt(1, day.getBook_id());
 			
 			result = pstmt.executeUpdate();
 		}catch(SQLException | URISyntaxException e) {
@@ -159,5 +161,86 @@ public class Dao {
 			System.out.println(result + "件更新しました。");
 		}
 		return result;
+	}
+	
+	public static int lendday(LendDto1 book1) {
+		String sql = "INSERT INTO book_lend VALUES(DEFAULT,?,?,NOW())";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book1.getAccount_id());
+			pstmt.setInt(2, book1.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static int lend7(LendDto2 book2) {
+		String sql = "UPDATE book_lend SET scheduledday = lendday + cast('7 days' as INTERVAL) WHERE book_id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static int lend14(LendDto2 book2) {
+		String sql = "UPDATE book_lend SET scheduledday = lendday + cast('14 days' as INTERVAL) WHERE book_id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static Date date(LendDto2 book2) {
+		String sql = "SELECT register_day FROM book,book_lend WHERE book.id = book_lend.book_id AND book_id = ?";
+		Date days = new Date();
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()){
+					Date day = rs.getDate("register_day");
+					
+					return days;
+				}
+			}
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return null ;
 	}
 }

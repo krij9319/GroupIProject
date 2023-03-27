@@ -8,17 +8,15 @@
 <title>貸出画面</title>
 </head>
 <body>
-	<div class="lend">
-		<form action="LendInputServlet">
-			<input type="submit" value="貸出" class="button1">
-		</form>
-		<form action="ReturnServlet">
-			<input type="submit" value="返却" class="button2">
-		</form>
+	<div class="main">
+		<h1>貸出完了！</h1>
 	</div>
-	<div class="end">
+	<div class="main-end">
 		<form action="./">
-			<input type="submit" value="トップに戻る">
+			<input type="submit" value="メニューへ戻る" class="button1">
+		</form>
+		<form action="LendInputServlet">
+			<input type="submit" value="続けて借りる" class="button2">
 		</form>
 	</div>
 </body>
