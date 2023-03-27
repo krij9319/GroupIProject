@@ -38,14 +38,14 @@ public class Book_RegisterPushServlet extends HttpServlet {
 			String name = request.getParameter("name");
 			String auther = request.getParameter("auther");
 			String publisher = request.getParameter("publisher");
-			String register_day = request.getParameter("register_day");
 			
-			BookDto1 book = new BookDto1(-1,isbn,name,auther,publisher,register_day);
+			BookDto1 book = new BookDto1(-1,isbn,name,auther,publisher);
 			
 			int result = Dao.register(book);
 			
 			if(result == 1) {
-				String view = "WEB-INF/view/register_success.jsp";			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+				String view = "WEB-INF/view/register_success.jsp";			
+				RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}else {
 				String view = "WEB-INF/view/book_register.jsp?error=1";
