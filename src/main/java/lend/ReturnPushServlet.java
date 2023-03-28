@@ -44,7 +44,7 @@ public class ReturnPushServlet extends HttpServlet {
 			int result = Dao.returnday(day);
 			result = Dao.returnbook(book);
 			
-			if(result == 1) {
+			if(result >= 1) {
 				String view = "WEB-INF/view/return-success.jsp";
 				RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
