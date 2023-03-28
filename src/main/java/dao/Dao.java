@@ -35,7 +35,7 @@ public class Dao {
 	}
 	
 	public static int register(BookDto1 book) {
-		String sql = "INSERT INTO book VALUES(DEFAULT,?,?,?,?,current_timestamp)";
+		String sql = "INSERT INTO book VALUES(DEFAULT,?,?,?,?,NOW())";
 		int result = 0;
 		
 		try (
@@ -223,7 +223,6 @@ public class Dao {
 	
 	public static Date date(LendDto2 book2) {
 		String sql = "SELECT register_day FROM book,book_lend WHERE book.id = book_lend.book_id AND book_id = ?";
-		Date days = new Date();
 		
 		try(
 				Connection con = getConnection();
@@ -235,12 +234,149 @@ public class Dao {
 				while(rs.next()){
 					Date day = rs.getDate("register_day");
 					
-					return days;
+					return day;
 				}
 			}
 		}catch(SQLException | URISyntaxException e) {
 			e.printStackTrace();
 		}
 		return null ;
+	}
+	
+	public static int bookhisttory(LendDto1 book1) {
+		String sql = "INSERT INTO book_history VALUES(DEFAULT,?,?,NOW())";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book1.getAccount_id());
+			pstmt.setInt(2, book1.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static int lend7_2(LendDto2 book2) {
+		String sql = "UPDATE book_history SET scheduledday = lendday + cast('7 days' as INTERVAL) WHERE book_id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static int lend14_2(LendDto2 book2) {
+		String sql = "UPDATE book_history SET scheduledday = lendday + cast('14 days' as INTERVAL) WHERE book_id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+
+	public static int returnhistory(ReturnDto2 book3) {
+		String sql = "UPDATE book_lend SET returnday = NOW() WHERE book_id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book3.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static Date date2(LendDto2 book2) {
+		String sql = "SELECT date2 FROM deadline WHERE book_id = ?";
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()){
+					Date day = rs.getDate("date2");
+					
+					return day;
+				}
+			}
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return null ;
+	}
+	
+	public static int deadline(LendDto2 book2) {
+		String sql = "INSERT INTO deadline VALUES(?,)";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました");
+		}
+		return result;
+	}
+	
+	public static int deadline2(LendDto2 book2) {
+		String sql = "UPDATE deadline SET date2 = date1 + cast('1 years' as INTERVAL) WHERE book_id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
 	}
 }
