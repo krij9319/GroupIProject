@@ -343,7 +343,7 @@ public class Dao {
 	}
 	
 	public static int deadline(LendDto2 book2) {
-		String sql = "INSERT INTO deadline VALUES(?,)";
+		String sql = "INSERT INTO deadline VALUES(?,NOW())";
 		int result = 0;
 		
 		try(

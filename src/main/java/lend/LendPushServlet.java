@@ -52,7 +52,7 @@ public class LendPushServlet extends HttpServlet {
 			Date days = Dao.date(book2);
 			Date days2 = Dao.date2(book2);
 			// 取得した登録日を元に1年以内かどうかで新/旧を判断する
-			if(days.compareTo(days2) >= 0 && days.compareTo(days3) <= 0) {
+			if(days.compareTo(days2) <= 0 && days.compareTo(days3) >= 0) {
 				// 判断に応じてlend7 or lend14 を呼び出して貸出テーブルにINSERT
 				result = Dao.lend7(book2);
 				result = Dao.lend7_2(book2);
