@@ -13,6 +13,7 @@ import java.util.List;
 
 import dto.BookDto1;
 import dto.BookDto2;
+import dto.BookDto3;
 import dto.LendDto1;
 import dto.LendDto2;
 import dto.ReturnDto;
@@ -376,6 +377,34 @@ public class Dao {
 			e.printStackTrace();
 		}finally {
 			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static List<BookDto3> all(){
+		List<BookDto3> result = new ArrayList<>();
+		
+		String sql = "SELECT * FROM book_history ORDER BY id ASC";
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					int id = rs.getInt("id");
+					int account_id = rs.getInt("account_id");
+					int book_id = rs.getInt("book_id");
+					String lendday = rs.getString("lendday");
+					String scheduledday = rs.getString("scheduledday");
+					String returnday = rs.getString("returnday");
+					
+					BookDto3 book = new BookDto3(id,account_id,book_id,lendday,scheduledday,returnday);
+					result.add(book);
+				}
+			}
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
 		}
 		return result;
 	}
