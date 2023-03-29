@@ -38,21 +38,22 @@ public class LendPushServlet extends HttpServlet {
 		try {
 			int account_id = Integer.parseInt(request.getParameter("account_id"));
 			int book_id = Integer.parseInt(request.getParameter("book_id"));
+			int id = Integer.parseInt(request.getParameter("book_id"));
 			Date days3 = new Date();
 			
 			LendDto1 book1 = new LendDto1(-1,account_id,book_id);
 			LendDto2 book2 = new LendDto2(book_id);
+			LendDto2 book3 = new LendDto2(id);
 			
 			int result = Dao.lendday(book1);
 			result = Dao.bookhisttory(book1);
-			result = Dao.deadline(book2);
-			result = Dao.deadline2(book2);
+			result = Dao.deadline2(book3);
 			
 			// 図書IDを元にDBを検索して、本の登録日を取得する
 			Date days = Dao.date(book2);
 			Date days2 = Dao.date2(book2);
 			// 取得した登録日を元に1年以内かどうかで新/旧を判断する
-			if(days.compareTo(days2) <= 0 && days.compareTo(days3) >= 0) {
+			if(days.compareTo(days3) <= 0 && days2.compareTo(days3) > 0) {
 				// 判断に応じてlend7 or lend14 を呼び出して貸出テーブルにINSERT
 				result = Dao.lend7(book2);
 				result = Dao.lend7_2(book2);
