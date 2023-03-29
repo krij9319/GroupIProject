@@ -37,10 +37,10 @@
 	<a href="">
   		<img class="img1" src="./img/図1.png" alt="図書一覧">
 	</a>
-    <a href="">
+    <a href="Book_HistoryServlet">
   		<img class="img2" src="./img/図3.png" alt="履歴">
 	</a>
-	<a href="">
+	<a href="LogoutServlet">
   		<img class="img3" src="./img/画像 6.png" alt="ログアウト">
 	</a>
 </div>

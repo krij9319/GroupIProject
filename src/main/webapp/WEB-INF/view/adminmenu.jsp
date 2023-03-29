@@ -37,7 +37,7 @@
   <a href="BookManagementServlet">
     <img class="img2" src="./img/NoPath.png" alt="図書管理">
   </a>
-  <a href="">
+  <a href="LendServlet">
     <img class="img3" src="./img/画像 7.png" alt="貸出・返却">
   </a>
 </div>
@@ -50,10 +50,10 @@
   <a href="">
     <img class="img1" src="./img/画像 10.png" alt="お知らせ投稿">
   </a>
-  <a href="">
+  <a href="Book_HistoryServlet2">
     <img class="img4" src="./img/図3.png" alt="履歴">
   </a>
-  <a href="">
+  <a href="LogoutServlet">
     <img class="img5" src="./img/画像 -1.png" alt="ログアウト">
   </a>
 </div>

@@ -26,12 +26,12 @@
 			for(BookDto3 all : book){
 			%>
 				<tr>
-					<td><a href=""><%=all.getId() %></a></td>
-					<td><a href=""><%=all.getAccount_id() %></a></td>
-					<td><a href=""><%=all.getBook_id() %></a></td>
-					<td><a href=""><%=all.getLendday() %></a></td>
-					<td><a href=""><%=all.getScheduledday() %></a></td>
-					<td><a href=""><%=all.getReturnday() %></a></td>
+					<td><%=all.getId() %></td>
+					<td><%=all.getAccount_id() %></td>
+					<td><%=all.getBook_id() %></td>
+					<td><%=all.getLendday() %></td>
+					<td><%=all.getScheduledday() %></td>
+					<td><%=all.getReturnday() %></td>
 				</tr>
 			<%
 			}
