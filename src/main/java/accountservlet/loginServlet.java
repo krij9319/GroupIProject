@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.AccountDAO;
 import dto.Account;
-import dto.Account2;
 import util.GenerateHashedPw;
 
 /**
@@ -39,7 +38,6 @@ public class loginServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String pw = request.getParameter("pw");
 		
-		Account2 user = new Account2(mail);
 		// 入力されたIDをもとにソルトを取得する。
 		String salt = AccountDAO.getSalt(mail);
 		
@@ -56,7 +54,7 @@ public class loginServlet extends HttpServlet {
 		
 		// 入力されたID、ハッシュしたPWに一致するユーザを検索する
 		Account account = AccountDAO.login(mail, hashedPw);
-		int situation = AccountDAO.situation(user);
+		int situation = AccountDAO.situation2(mail);
 		
 		// 一致するユーザがいなければ、ログイン失敗
 		if(account == null) {
@@ -67,14 +65,20 @@ public class loginServlet extends HttpServlet {
 			// ログイン情報をセッションに登録
 			HttpSession session = request.getSession();
 			session.setAttribute("user", account);
-			  String redirectUrl;
+			  String redirectUrl ="";
 			    if(situation == 1){
-			      redirectUrl = "/adminmenu.jsp";
+			    	System.out.println(situation);
+			      redirectUrl = "WEB-INF/view/adminmenu.jsp";
+			      RequestDispatcher dispatcher = request.getRequestDispatcher(redirectUrl);
+			      dispatcher.forward(request, response);
+			    		  
 			    } else {
-			    	redirectUrl = "/menu.jsp";
+			    	System.out.println(situation);
+			    	redirectUrl = "WEB-INF/view/menu.jsp";
+			    	RequestDispatcher dispatcher = request.getRequestDispatcher(redirectUrl);
+			    	dispatcher.forward(request, response);
 			    }
 
-			    response.sendRedirect(redirectUrl);
 			  }
 	}
 	/**

@@ -151,19 +151,50 @@ public class AccountDAO {
 		return null;
 	}
 	
-	public static int situation(Account2 user) {
+	public static List<Account2> situation(String mail){
 		String sql = "SELECT situation FROM accountuser WHERE email = ?";
+		List<Account2> result = new ArrayList<>();
 		
 		try(
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
-			pstmt.setString(1, user.getMail());
+			pstmt.setString(1, mail);
+			
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					int situation = rs.getInt("situation");
+					
+					Account2 data = new Account2(situation,mail);
+					
+					result.add(data);
+				}
+			}
 		}catch(SQLException | URISyntaxException e) {
 			e.printStackTrace();
-		}finally{
-			System.out.println("更新しました。");
 		}
-		return 0; 
+		return result;
+	}
+	
+	public static int situation2(String mail){
+		String sql = "SELECT situation FROM accountuser WHERE email = ?";
+		int result =0 ;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setString(1, mail);
+			
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					int c = rs.getInt("situation");
+					result = c;
+				}
+			}
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }
