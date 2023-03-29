@@ -3,24 +3,13 @@ package dto;
 public class Account{
 	private int id;
 	private String name;
-	private String email;
+	private String tell;
+	private String mail;
+	private String password;
+	private int situation;
 	private String salt;
-	private String pw;
 	private String hashedPassword;
-	private String tel;
 	
-	public Account(int id, String name, String email, String salt, String pw, String hashedPassword, 
-			 String tel) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.salt = salt;
-		this.pw = pw;
-		this.hashedPassword = hashedPassword;
-		this.tel = tel;
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -37,12 +26,36 @@ public class Account{
 		this.name = name;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getTell() {
+		return tell;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setTell(String tell) {
+		this.tell = tell;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public int getSituation() {
+		return situation;
+	}
+
+	public void setSituation(int situation) {
+		this.situation = situation;
 	}
 
 	public String getSalt() {
@@ -53,14 +66,6 @@ public class Account{
 		this.salt = salt;
 	}
 
-	public String getPw() {
-		return pw;
-	}
-
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
-
 	public String getHashedPassword() {
 		return hashedPassword;
 	}
@@ -69,14 +74,16 @@ public class Account{
 		this.hashedPassword = hashedPassword;
 	}
 
-	public String getTel() {
-		return tel;
+	public Account(int id, String name, String tell, String mail, String password, int situation, String salt,
+			String hashedPassword) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.tell = tell;
+		this.mail = mail;
+		this.password = password;
+		this.situation = situation;
+		this.salt = salt;
+		this.hashedPassword = hashedPassword;
 	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
-
-	
 }
