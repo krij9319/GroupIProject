@@ -12,7 +12,7 @@
 		<h1>返却成功！</h1>
 	</div>
 	<div class="main-end">
-		<form action="./">
+		<form action="WEB-INF/view/adminmenu.jsp">
 			<input type="submit" value="メニューへ戻る" class="button1">
 		</form>
 		<form action="ReturnServlet">

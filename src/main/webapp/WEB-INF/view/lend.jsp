@@ -17,8 +17,8 @@
 		</form>
 	</div>
 	<div class="end">
-		<form action="./">
-			<input type="submit" value="トップに戻る">
+		<form action="WEB-INF/view/adminmenu.jsp">
+			<input type="submit" value="メニューに戻る">
 		</form>
 	</div>
 </body>

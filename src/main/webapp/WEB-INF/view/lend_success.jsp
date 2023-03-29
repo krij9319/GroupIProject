@@ -12,7 +12,7 @@
 		<h1>貸出完了！</h1>
 	</div>
 	<div class="main-end">
-		<form action="./">
+		<form action="WEB-INF/view/adminmenu.jsp">
 			<input type="submit" value="メニューへ戻る" class="button1">
 		</form>
 		<form action="LendInputServlet">

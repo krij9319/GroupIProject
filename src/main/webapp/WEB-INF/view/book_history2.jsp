@@ -38,5 +38,8 @@
 			%>
 		</table>
 	</div>
+	<div class="main-end">
+		<a href="WEB-INF/view/adminmenu.jsp">戻る</a>
+	</div>
 </body>
 </html>
