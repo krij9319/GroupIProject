@@ -30,16 +30,16 @@
   <!--メニュー画面-->
   
  <div class="haba">
-	<a href="">
+	<a href="Book_RegisterServlet">
   		<img class="img1" src="./img/NoPath.png" alt="本の登録">
 	</a>
     <a href="">
   		<img class="img2" src="./img/図1.png" alt="図書一覧">
 	</a>
-	<a href="">
+	<a href="Book_DeleteServlet">
   		<img class="img3" src="./img/画像 8.png" alt="図書削除">
 	</a>
-    <a href="">
+    <a href="Book_UpdateServlet">
         <img class="img4" src="./img/画像 9.png" alt="本の編集">
   </a>
 </div>
@@ -49,7 +49,7 @@
    <span>図書削除</span>
    <span>本の編集</span>
    <br>
-   <div class="back"><a href="">戻る</a></div>
+   <div class="back"><a href="WEB-INF/view/adminmenu.jsp">戻る</a></div>
    
 	<script src="./JavaScript/hamburger.js"></script>
 </body>
