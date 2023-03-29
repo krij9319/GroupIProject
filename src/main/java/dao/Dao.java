@@ -322,7 +322,7 @@ public class Dao {
 	}
 	
 	public static Date date2(LendDto2 book2) {
-		String sql = "SELECT date2 FROM deadline WHERE book_id = ?";
+		String sql = "SELECT date2 FROM deadline WHERE id = ?";
 		
 		try(
 				Connection con = getConnection();
@@ -343,15 +343,14 @@ public class Dao {
 		return null ;
 	}
 	
-	public static int deadline(LendDto2 book2) {
-		String sql = "INSERT INTO deadline VALUES(?,NOW())";
+	public static int deadline() {
+		String sql = "INSERT INTO deadline VALUES(DEFAULT,NOW())";
 		int result = 0;
 		
 		try(
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
-			pstmt.setInt(1, book2.getBook_id());
 			
 			result = pstmt.executeUpdate();
 		}catch(SQLException | URISyntaxException e) {
@@ -362,15 +361,15 @@ public class Dao {
 		return result;
 	}
 	
-	public static int deadline2(LendDto2 book2) {
-		String sql = "UPDATE deadline SET date2 = date1 + cast('1 years' as INTERVAL) WHERE book_id = ?";
+	public static int deadline2(LendDto2 book3) {
+		String sql = "UPDATE deadline SET date2 = date1 + cast('1 years' as INTERVAL) WHERE id = ?";
 		int result = 0;
 		
 		try(
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
-			pstmt.setInt(1, book2.getBook_id());
+			pstmt.setInt(1, book3.getBook_id());
 			
 			result = pstmt.executeUpdate();
 		}catch(SQLException | URISyntaxException e) {
