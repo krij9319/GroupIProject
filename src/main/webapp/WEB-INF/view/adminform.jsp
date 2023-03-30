@@ -18,9 +18,9 @@
 		<h1>管理者登録</h1>
 		<form action="adminConfirmServlet" method="post">
 			名前<br><input type="text" name="name" value="<%=ac.getName()%>"><br>
-			メール<br><input type="email" name="email" value="<%=ac.getEmail()%>"><br>
+			メール<br><input type="email" name="email" value="<%=ac.getMail()%>"><br>
 			パスワード<br><input type="password" name="pw"><br>
-			電話番号<br><input type="text" name="age" value="<%=ac.getTel()%>"><br>
+			電話番号<br><input type="text" name="age" value="<%=ac.getTell()%>"><br>
 			<input type="submit" value="次へ">
 		</form>
 	<%
