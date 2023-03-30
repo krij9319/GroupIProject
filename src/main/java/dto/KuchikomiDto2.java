@@ -1,21 +1,11 @@
 package dto;
 
-public class KuchikomiDto1 {
-	private int id;
+public class KuchikomiDto2 {
 	private String kuchikomi;
 	
-	public KuchikomiDto1(int id, String kuchikomi) {
+	public KuchikomiDto2(String kuchikomi) {
 		super();
-		this.id = id;
 		this.kuchikomi = kuchikomi;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getKuchikomi() {
@@ -25,4 +15,5 @@ public class KuchikomiDto1 {
 	public void setKuchikomi(String kuchikomi) {
 		this.kuchikomi = kuchikomi;
 	}
+
 }
