@@ -8,11 +8,14 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="favicon/library.jpg">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel ="stylesheet"href="css/list.css">
+  <link rel ="stylesheet"href="css/hamburger.css">
 <title>貸出履歴</title>
 </head>
 <body>
 	<div class="main">
-		<table border="1">
+		<table id="hyou" border="1" style="width: 800px; font-size: 14px;">
 			<tr>
 				<th>ID</th>
 				<th>利用者ID</th>
@@ -41,5 +44,7 @@
 	<div class="main-end">
 		<a href="ReturnMenuServlet">メニューに戻る</a>
 	</div>
+	 <script src="./JavaScript/hamburger.js"></script>
+	
 </body>
 </html>

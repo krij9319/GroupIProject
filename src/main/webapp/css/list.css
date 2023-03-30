@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+#header {
+  background-color: #2AD535; /* 例：みどり色 */
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0; /* 重なり順序 */
+   text-align: center;	
+}
+
+header img {
+  display: inline-block;
+}
+
+#hyou {
+  margin: 0 auto;
+}
+
+.back{
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 150px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 100vh;
+    text-align: center;
+    border: solid 3px gray;/*線*/
+    background-color: yellow;
+  }
