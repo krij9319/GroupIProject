@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AccountDAO;
-import dto.AccountDel;
+import dao.BookDAO;
+import dto.BookDto1;
 
 /**
- * Servlet implementation class RegisterDel
+ * Servlet implementation class SelectQuiz
  */
-@WebServlet("/RegisteraccountDel")
-public class RegisteraccountDel extends HttpServlet {
+@WebServlet("/SelectBook")
+public class SelectBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisteraccountDel() {
+    public SelectBookServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,22 +32,15 @@ public class RegisteraccountDel extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		String email = request.getParameter("email");
-		AccountDel account = new AccountDel(email);
+		// DBから全件データを取得
+		List<BookDto1> bookList = BookDAO.selectAllbook();
 		
-		int result = AccountDAO.deleteAccountDel(account);
-	
+		// 取得したリストをリクエストスコープに保管(JSPに渡すため)
+		request.setAttribute("list", bookList);
 		
-		if(result == 1) {
-			String view = "WEB-INF/view/accountdel_success.jsp";
-			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-			dispatcher.forward(request, response);
-		} else {
-			String view = "WEB-INF/view/accountdel_fail.jsp";
-			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-			dispatcher.forward(request, response);
-		}
+		String view = "WEB-INF/view/book_list.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+		dispatcher.forward(request, response);
 	}
 
 	/**

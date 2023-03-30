@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.BookDto1;
-public class BookDAO {
+import dto.KuchikomiDto1;
+public class HyoukaDAO {
 
 	private static Connection getConnection() throws URISyntaxException, SQLException {
 		try {
@@ -27,11 +27,36 @@ public class BookDAO {
 
 	    return DriverManager.getConnection(dbUrl, username, password);
 	}
-	public static List<BookDto1> selectAllbook() {
+	public static int registerKuchikomiDto1(KuchikomiDto1 hyouka) {
+		String sql = "INSERT INTO hyouka VALUES(default,?,current_timestamp)";
 
-		String sql = "SELECT * FROM book";
+		// return用の変数
+		int result = 0;
 
-		List<BookDto1> result = new ArrayList<>();
+		try (
+				Connection con = getConnection();	// DB接続
+				PreparedStatement pstmt = con.prepareStatement(sql);			// 構文解析
+				){
+
+			pstmt.setString(1, hyouka.getKuchikomi());
+
+	
+			System.out.println(pstmt);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		} finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	public static List<KuchikomiDto1> selectAllhyouka() {
+
+		String sql = "SELECT * FROM hyouka";
+
+		List<KuchikomiDto1> result = new ArrayList<>();
 		
 		
 		try (
@@ -42,15 +67,12 @@ public class BookDAO {
 			try (ResultSet rs = pstmt.executeQuery()){
 				while(rs.next()) {
 					Integer id = rs.getInt("id");
-					Integer isbn = rs.getInt("isbn");
-					String name = rs.getString("name");
-					String auther = rs.getString("auther");
-					String publisher = rs.getString("publisher");
-					String register_day = rs.getString("register_day");
 
-					BookDto1 book = new BookDto1(id,isbn,name,auther,publisher,register_day);
+					String kuchikomi = rs.getString("kuchikomi");
+
+					KuchikomiDto1 hyouka = new KuchikomiDto1(id,kuchikomi);
 					
-					result.add(book);
+					result.add(hyouka);
 				}
 			}
 		} catch (SQLException e) {
@@ -63,4 +85,3 @@ public class BookDAO {
 		return result;
 	}
 }
-	

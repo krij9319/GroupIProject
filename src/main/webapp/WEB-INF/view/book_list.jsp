@@ -32,7 +32,7 @@
 			<td><%=b.getName() %></td>
 			<td><%=b.getAuther() %></td>
 			<td><%=b.getPublisher() %></td>
-            <td><%=b.getExamDate() %></td>
+            <td><%=b.getRegister_day() %></td>
 		</tr>
 		<%} %>
 		</table>

@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.AccountDAO;
+import dto.AccountDel;
+
 /**
- * Servlet implementation class del
+ * Servlet implementation class RegisterDel
  */
-@WebServlet("/accountdel")
-public class accountdel extends HttpServlet {
+@WebServlet("/RegisteraccountDel")
+public class RegisteraccountDelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public accountdel() {
+    public RegisteraccountDelServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +31,22 @@ public class accountdel extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "WEB-INF/view/accountdel.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request, response);
+		request.setCharacterEncoding("UTF-8");
+		String email = request.getParameter("email");
+		AccountDel accountuser = new AccountDel(email);
+		
+		int result = AccountDAO.deleteAccountDel(accountuser);
+	
+		
+		if(result == 1) {
+			String view = "WEB-INF/view/accountdel_success.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+			dispatcher.forward(request, response);
+		} else {
+			String view = "WEB-INF/view/accountdel_fail.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**

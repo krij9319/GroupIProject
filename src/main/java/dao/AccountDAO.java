@@ -13,6 +13,7 @@ import java.util.List;
 
 import dto.Account;
 import dto.Account2;
+import dto.AccountDel;
 import util.GenerateHashedPw;
 import util.GenerateSalt;
 
@@ -194,6 +195,29 @@ public class AccountDAO {
 			}
 		}catch(SQLException | URISyntaxException e) {
 			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public static int deleteAccountDel(AccountDel accountuser) {
+		
+		String sql = "DELETE FROM accountuser WHERE email = ?";
+		
+		int result = 0;
+		try (
+				Connection con = getConnection();	// DB接続
+				PreparedStatement pstmt = con.prepareStatement(sql);			// 構文解析
+				){
+			
+			pstmt.setString(1, accountuser.getEmail());
+
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		} finally {
+			System.out.println(result + "件削除しました。");
 		}
 		return result;
 	}
