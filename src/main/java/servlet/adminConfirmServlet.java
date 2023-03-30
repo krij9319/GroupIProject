@@ -34,11 +34,11 @@ public class adminConfirmServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String name = request.getParameter("name");
-		String mail = request.getParameter("email");
+		String tell = request.getParameter("tell");
+		String mail = request.getParameter("mail");
 		String pw = request.getParameter("pw");
-		String tel = request.getParameter("tel");
 		
-		Account account = new Account(-1, name, mail, null, pw, null, tel);
+		Account accountuser = new Account(-1,name,tell,mail,pw,1,null,null);
 		
 		// セッションスコープのインスタンス取得
 		HttpSession session = request.getSession();
@@ -46,7 +46,7 @@ public class adminConfirmServlet extends HttpServlet {
 		// セッションスコープに値の保存
 		// 第1引数：キー
 		// 第2引数：保存する値
-		session.setAttribute("input_data", account);
+		session.setAttribute("input_data", accountuser);
 		
 		String view = "WEB-INF/view/adminconfirm.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

@@ -33,7 +33,7 @@
   <img class="osirase" src="./img/グループ 10.png" alt="おしらせ">
 
   <div class="haba">
-	<a href="SelectBook">
+	<a href="SelectBookServlet">
   		<img class="img1" src="./img/図1.png" alt="図書一覧">
 	</a>
     <a href="Book_HistoryServlet">

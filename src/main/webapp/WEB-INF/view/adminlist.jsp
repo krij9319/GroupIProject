@@ -7,15 +7,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>利用者管理者一覧</title>
 </head>
 <body>
-<h1>管理者一覧</h1>
+<h1>利用者及び管理者一覧</h1>
 	<table>
 		<tr>
 			<th>ID</th>
 			<th>名前</th>
 			<th>メールアドレス</th>
+			
 		</tr>
 			<%
 	List<Account> list = (ArrayList<Account>)request.getAttribute("list");
@@ -28,5 +29,6 @@
 		</tr>
 	<%} %>
 	</table>
+	<a href="AccountManagementServlet">戻る</a>
 </body>
 </html>

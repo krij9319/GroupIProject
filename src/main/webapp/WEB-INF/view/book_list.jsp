@@ -36,6 +36,6 @@
 		</tr>
 		<%} %>
 		</table>
-<a href="./">戻る</a>
+<a href="BookManagementServlet">戻る</a>
 </body>
 </html>

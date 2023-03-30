@@ -8,14 +8,13 @@
 <title>確認</title>
 </head>
 <body>
-	<h1><p>下記の内容で登録します。よろしいですか？</p></h1>
+	<p>下記の内容で登録します。よろしいですか？</p>
 	<%
 		Account account = (Account)session.getAttribute("input_data");
 	%>
-	名前<br><%=account.getName() %><br>
-	メール<br><%=account.getEmail() %><br>
-	パスワード<br>********</p><br>
-	電話番号<br><%=account.getTel() %><br>
+	メール：<%=account.getMail() %><br>
+	パスワード：********<br>
+	名前：<%=account.getName() %><br>
 	<a href="adminExecuteServlet">OK</a><br>
 	<a href="adminFormServlet">戻る</a>
 </body>

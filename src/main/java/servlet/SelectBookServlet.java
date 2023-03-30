@@ -16,7 +16,7 @@ import dto.BookDto1;
 /**
  * Servlet implementation class SelectQuiz
  */
-@WebServlet("/SelectBook")
+@WebServlet("/SelectBookServlet")
 public class SelectBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

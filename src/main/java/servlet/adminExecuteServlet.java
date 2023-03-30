@@ -35,10 +35,10 @@ public class adminExecuteServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		// 入力データの取得
-		Account account = (Account)session.getAttribute("input_data");
+		Account accountuser = (Account)session.getAttribute("input_data");
 		
 		// 登録処理
-		int result = AccountDAO.registerAccount(account);
+		int result = AccountDAO.registerAccount1(accountuser);
 		
 		String path = "";
 		if(result == 1) {
