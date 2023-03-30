@@ -23,10 +23,9 @@
     </button>
     
     <div class="menu">
-      <div class="menu__item">TOP</div>
-      <div class="menu__item">ABOUT</div>
-      <div class="menu__item">BLOG</div>
-      <div class="menu__item">CONTACT</div>
+      <div class="menu__item"><a href="AdominTopServlet">TOP</a></div>
+      <div class="menu__item"><a href="AccountManagementServlet">アカウント管理</a></div>
+      <div class="menu__item"><a href="BookManagementServlet">図書管理</a></div>
     </div>
     
   <!--メニュー画面-->

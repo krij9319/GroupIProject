@@ -7,7 +7,7 @@
 <title>図書管理メニュー</title>
 <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel ="stylesheet"href="css/menu.css">
+  <link rel ="stylesheet"href="css/BookManagement.css">
   <link rel ="stylesheet"href="css/hamburger.css">
 </head>
   <body>
@@ -21,10 +21,9 @@
     </button>
     
     <div class="menu">
-      <div class="menu__item">TOP</div>
-      <div class="menu__item">ABOUT</div>
-      <div class="menu__item">BLOG</div>
-      <div class="menu__item">CONTACT</div>
+      <div class="menu__item"><a href="AdominTopServlet">TOP</a></div>
+      <div class="menu__item"><a href="AccountManagementServlet">アカウント管理</a></div>
+      <div class="menu__item"><a href="BookManagementServlet">図書管理</a></div>
     </div>
     
   <!--メニュー画面-->
@@ -49,7 +48,7 @@
    <span>図書削除</span>
    <span>本の編集</span>
    <br>
-   <div class="back"><a href="WEB-INF/view/adminmenu.jsp">戻る</a></div>
+   <div class="back"><a href="AdominTopServlet">戻る</a></div>
    
 	<script src="./JavaScript/hamburger.js"></script>
 </body>
