@@ -1,4 +1,4 @@
-package Servlet;
+package servret2;
 
 import java.io.IOException;
 
@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class adminFormServret
  */
-@WebServlet("/adminFormServlet")
-public class adminFormServlet extends HttpServlet {
+@WebServlet("/AccountManagementServlet")
+public class AccountManagementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public adminFormServlet() {
+    public AccountManagementServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class adminFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "WEB-INF/view/adminform.jsp";
+		String view = "WEB-INF/view/AccountManagement.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
