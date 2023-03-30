@@ -45,7 +45,7 @@ public class Book_SearchPushServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}else {
-				String view = "WEB-INF/view/";
+				String view = "WEB-INF/view/book_list.jsp";
 				RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 				dispatcher.forward(request, response);
 			}

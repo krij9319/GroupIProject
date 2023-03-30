@@ -32,7 +32,7 @@
 	<a href="Book_RegisterServlet">
   		<img class="img1" src="./img/NoPath.png" alt="本の登録">
 	</a>
-    <a href="">
+    <a href="SelectBookServlet">
   		<img class="img2" src="./img/図1.png" alt="図書一覧">
 	</a>
 	<a href="Book_DeleteServlet">

@@ -36,6 +36,8 @@
 		</tr>
 		<%} %>
 		</table>
-<a href="./">戻る</a>
+	<div class="main-end">
+		<a href="ReturnMenuServlet">メニューに戻る</a>
+	</div>
 </body>
 </html>
