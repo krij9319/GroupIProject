@@ -7,7 +7,7 @@
 <title>管理者画面</title>
  <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel ="stylesheet"href="css/adominmenu.css">
+<link rel ="stylesheet"href="css/adominmenu2.css">
 <link rel ="stylesheet"href="css/hamburger.css">
 </head>
 
@@ -25,6 +25,8 @@
       <div class="menu__item"><a href="AdominTopServlet">TOP</a></div>
       <div class="menu__item"><a href="AccountManagementServlet">アカウント管理</a></div>
       <div class="menu__item"><a href="BookManagementServlet">図書管理</a></div>
+      <div class="menu__item"><a href="Book_HistoryServlet2">履歴</a></div>
+      <div class="menu__item"><a href="LogoutServlet">ログアウト</a></div>
     </div>
   
   <!-- メニュー画面 -->
@@ -38,7 +40,7 @@
   <a href="BookManagementServlet">
     <img class="img2" src="./img/NoPath.png" alt="図書管理">
   </a>
-  <a href="LendServlet">
+  <a href="">
     <img class="img3" src="./img/画像 7.png" alt="貸出・返却">
   </a>
 </div>
@@ -49,16 +51,14 @@
 
 <div class="haba2">
   <a href="">
-    <img class="img1" src="./img/画像 10.png" alt="お知らせ投稿">
-  </a>
-  <a href="Book_HistoryServlet2">
     <img class="img4" src="./img/図3.png" alt="履歴">
   </a>
-  <a href="LogoutServlet">
+  <a href="">
     <img class="img5" src="./img/画像 -1.png" alt="ログアウト">
   </a>
+  
 </div>
-  <span>お知らせ投稿</span> 
+  
   <span>履歴</span>
   <span>ログアウト</span>
 

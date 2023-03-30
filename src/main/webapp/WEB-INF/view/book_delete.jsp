@@ -29,6 +29,8 @@
       <div class="menu__item"><a href="AdominTopServlet">TOP</a></div>
       <div class="menu__item"><a href="AccountManagementServlet">アカウント管理</a></div>
       <div class="menu__item"><a href="BookManagementServlet">図書管理</a></div>
+      <div class="menu__item"><a href="Book_HistoryServlet2">履歴</a></div>
+      <div class="menu__item"><a href="LogoutServlet">ログアウト</a></div>
     </div>
   <p> </p><br><br><br><br>
 
