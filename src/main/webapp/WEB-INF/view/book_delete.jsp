@@ -69,11 +69,10 @@
 		<table id="hyou" border="1" >
 			<tr>
 				<th>ID</th>
-				<th>利用者ID</th>
-				<th>図書ID</th>
-				<th>貸出日</th>
-				<th>返却予定日</th>
-				<th>返却日</th>
+				<th>ISBN</th>
+				<th>名前</th>
+				<th>図書登録日</th>
+				<th>貸出状況</th>
 			</tr>
 		<%
 		List<BookDto3> book = (ArrayList<BookDto3>)request.getAttribute("book");
@@ -81,11 +80,10 @@
 		%>
 			<tr>
 				<td><%=all.getId() %></td>
-				<td><%=all.getAccount_id() %></td>
-				<td><%=all.getBook_id() %></td>
-				<td><%=all.getLendday() %></td>
-				<td><%=all.getScheduledday() %></td>
-				<td><%=all.getReturnday() %></td>
+				<td><%=all.getIsbn() %></td>
+				<td><%=all.getName() %></td>
+				<td><%=all.getRegister_day() %></td>
+				<td><%=all.getBooksitu() %></td>
 			</tr>
 		<%
 		}

@@ -385,7 +385,7 @@ public class Dao {
 	public static List<BookDto3> all(){
 		List<BookDto3> result = new ArrayList<>();
 		
-		String sql = "SELECT * FROM book_history ORDER BY id ASC";
+		String sql = "SELECT id,isbn,name,register_day,booksitu FROM book ORDER BY id ASC";
 		
 		try(
 				Connection con = getConnection();
@@ -394,13 +394,12 @@ public class Dao {
 			try(ResultSet rs = pstmt.executeQuery()){
 				while(rs.next()) {
 					int id = rs.getInt("id");
-					int account_id = rs.getInt("account_id");
-					int book_id = rs.getInt("book_id");
-					String lendday = rs.getString("lendday");
-					String scheduledday = rs.getString("scheduledday");
-					String returnday = rs.getString("returnday");
+					int isbn = rs.getInt("isbn");
+					String name = rs.getString("name");
+					String register_day = rs.getString("register_day");
+					String booksitu = rs.getString("booksitu");
 					
-					BookDto3 book = new BookDto3(id,account_id,book_id,lendday,scheduledday,returnday);
+					BookDto3 book = new BookDto3(id,isbn,name,register_day,booksitu);
 					result.add(book);
 				}
 			}
