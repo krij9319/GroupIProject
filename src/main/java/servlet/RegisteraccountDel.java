@@ -1,4 +1,4 @@
-package Servlet;
+package servlet;
 
 import java.io.IOException;
 
@@ -8,21 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import dto.Account;
+import dao.AccountDAO;
+import dto.AccountDel;
 
 /**
- * Servlet implementation class TopServlet
+ * Servlet implementation class RegisterDel
  */
-@WebServlet("/TopServlet")
-public class TopServlet extends HttpServlet {
+@WebServlet("/RegisteraccountDel")
+public class RegisteraccountDel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TopServlet() {
+    public RegisteraccountDel() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,23 +31,22 @@ public class TopServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//処理の始めにログイン状態のチェックを行う。
-		HttpSession session = request.getSession();
-		Account account = (Account)session.getAttribute("user");
-
-		if(account == null){
-			//セッションの中身がnullであれば不正アクセスと判断し
-			//ログイン画面へ戻る
-			String view = "./";
+		request.setCharacterEncoding("UTF-8");
+		String email = request.getParameter("email");
+		AccountDel account = new AccountDel(email);
+		
+		int result = AccountDAO.deleteAccountDel(account);
+	
+		
+		if(result == 1) {
+			String view = "WEB-INF/view/accountdel_success.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
-			return;
+		} else {
+			String view = "WEB-INF/view/accountdel_fail.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+			dispatcher.forward(request, response);
 		}
-		
-		// 正常な画面を表示
-		String view = "WEB-INF/view/menu.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request, response);
 	}
 
 	/**

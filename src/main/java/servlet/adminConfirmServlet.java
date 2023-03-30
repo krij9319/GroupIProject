@@ -1,7 +1,6 @@
-package Servlet;
+package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,21 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import dao.BookDAO;
-import dto.BookDto1;
+import dto.Account;
 
 /**
- * Servlet implementation class SelectQuiz
+ * Servlet implementation class adminConfirmServlet
  */
-@WebServlet("/SelectBook")
-public class SelectBook extends HttpServlet {
+@WebServlet("/adminConfirmServlet")
+public class adminConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectBook() {
+    public adminConfirmServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,15 +31,26 @@ public class SelectBook extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// DBから全件データを取得
-		List<BookDto1> bookList = BookDAO.selectAllbook();
+		request.setCharacterEncoding("UTF-8");
 		
-		// 取得したリストをリクエストスコープに保管(JSPに渡すため)
-		request.setAttribute("list", bookList);
+		String name = request.getParameter("name");
+		String mail = request.getParameter("email");
+		String pw = request.getParameter("pw");
+		String tel = request.getParameter("tel");
 		
-		String view = "WEB-INF/view/book_list.jsp";
+		Account account = new Account(-1, name, mail, null, pw, null, tel);
+		
+		// セッションスコープのインスタンス取得
+		HttpSession session = request.getSession();
+		
+		// セッションスコープに値の保存
+		// 第1引数：キー
+		// 第2引数：保存する値
+		session.setAttribute("input_data", account);
+		
+		String view = "WEB-INF/view/adminconfirm.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request, response);
+		dispatcher.forward(request, response);	
 	}
 
 	/**
