@@ -45,7 +45,7 @@
     <span>管理者・利用者の一覧</span>
     <span>管理者・利用者の削除</span>
     <br>
-    <div class="back"><a href="">戻る</a></div>
+    <div class="back"><a href="WEB-INF/view/adminmenu.jsp">戻る</a></div>
 	<script src="./js/index.js"></script>
 </body>
 </html>
