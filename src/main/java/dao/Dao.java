@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import dto.Account3;
 import dto.BookDto1;
 import dto.BookDto2;
 import dto.BookDto3;
@@ -478,6 +479,36 @@ public class Dao {
 		}finally {
 			System.out.println(result + "件更新しました。");
 		}
+		return result;
+	}
+	
+	public static List<Account3> accountuser() {
+		String sql = "SELECT id,name,email FROM accountuser";
+		List<Account3> result = new ArrayList<>();
+		
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			
+			try (ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					int id = rs.getInt("id");
+					String name = rs.getString("name");
+					String email = rs.getString("email");
+					
+					Account3 account = new Account3(id,name,email);
+					
+					result.add(account);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		} 
+
+		// Listを返却する。0件の場合は空のListが返却される。
 		return result;
 	}
 }
