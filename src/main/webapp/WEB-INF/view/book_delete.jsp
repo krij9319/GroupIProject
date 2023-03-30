@@ -55,18 +55,18 @@
 		<div class="center">
 		<p>削除する図書IDを入力してください</p>
 		<form action="Book_DeletePushServlet">
-			<textarea name="id" rows="2" cols="50" placeholder="内容を入力"></textarea><br>
+			<input type="text" name="id"><br>
 			<p>このIDの図書を削除しますか？</p>
-			<input type="submit" value="削除" class="button1">
+			<input class="up" type="submit" value="削除" class="button1">
 		</form>
 		<%
 			}
 		%>
 	</div>
 	</div>
-	
+	<br>
 	<div class="book">
-		<table border="1">
+		<table id="hyou" border="1" >
 			<tr>
 				<th>ID</th>
 				<th>利用者ID</th>
@@ -93,7 +93,7 @@
 		</table>
 	</div>
 	<div class="main-end">
-		<a href="ReturnAdmenuServlet">戻る</a>
+		<div class="back"><a href="ReturnAdmenuServlet">戻る</a></div>
 	</div>
 	  <script src="./JavaScript/hamburger.js"></script>
 </body>
