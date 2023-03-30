@@ -17,6 +17,9 @@
 		<input type="email" name="email"><br>
 		このメールアドレスの管理者及び利用者を削除しますか？<br>
 		<input type="submit" value="削除"><br>
+
+	　　<a href="AccountManagementServlet">戻る</a>
+
 	</form>
 			<table border="1">
 		<tr>
@@ -38,5 +41,6 @@
 	%>
 	</table>
 	<a href="ReturnAdmenuServlet">戻る</a>
+
 </body>
 </html>

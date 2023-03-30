@@ -35,6 +35,9 @@
 <br><br>
   <div class="haba">
 
+
+
+
 	<a href="SelectBookServlet">
   		<img class="img1" src="./img/図1.png" alt="図書一覧">
 	</a>

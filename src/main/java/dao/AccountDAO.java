@@ -13,6 +13,7 @@ import java.util.List;
 
 import dto.Account;
 import dto.Account2;
+import dto.Account3;
 import dto.AccountDel;
 import util.GenerateHashedPw;
 import util.GenerateSalt;
@@ -53,9 +54,9 @@ public class AccountDAO {
 					String tell = rs.getString("tell");
 					String password = rs.getString("password");
 					String salt = rs.getString("salt");
-					Account account = new Account(-1, id,name,tell, mail, 0 , password, salt);
+					Account accountuser = new Account(-1, id,name,tell, mail, 0 , password, salt);
 					
-					result.add(account);
+					result.add(accountuser);
 				}
 			}
 		} catch (SQLException | URISyntaxException e) {
@@ -66,7 +67,7 @@ public class AccountDAO {
 		return result;
 	}
 	
-	public static int registerAccount(Account account) {
+	public static int registerAccount(Account accountuser) {
 		String sql = "INSERT INTO accountuser VALUES( default,?, ?, ?,0,?,?, current_timestamp)";
 		int result = 0;
 		
@@ -74,16 +75,16 @@ public class AccountDAO {
 		String salt = GenerateSalt.getSalt(32);
 		
 		// 取得したソルトを使って平文PWをハッシュ
-		String hashedPw = GenerateHashedPw.getSafetyPassword(account.getPassword(), salt);
+		String hashedPw = GenerateHashedPw.getSafetyPassword(accountuser.getPassword(), salt);
 		try (
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
-			pstmt.setString(3, account.getMail());
-			pstmt.setString(2,account.getTell());
+			pstmt.setString(1, accountuser.getName());
+			pstmt.setString(2,accountuser.getTell());
+			pstmt.setString(3, accountuser.getMail());
 			pstmt.setString(4, salt);
 			pstmt.setString(5, hashedPw);
-			pstmt.setString(1, account.getName());
 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -221,8 +222,12 @@ public class AccountDAO {
 		}
 		return result;
 	}
+
+	public static int registerAccount1(Account accountuser) {
+
 	
 	public static int registerAccount2(Account account) {
+
 		String sql = "INSERT INTO accountuser VALUES( default,?, ?, ?,1,?,?, current_timestamp)";
 		int result = 0;
 		
@@ -230,16 +235,28 @@ public class AccountDAO {
 		String salt = GenerateSalt.getSalt(32);
 		
 		// 取得したソルトを使って平文PWをハッシュ
+
+		String hashedPw = GenerateHashedPw.getSafetyPassword(accountuser.getPassword(), salt);
+
 		String hashedPw = GenerateHashedPw.getSafetyPassword(account.getPassword(), salt);
+
 		try (
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
+
+			pstmt.setString(1, accountuser.getName());
+			pstmt.setString(2,accountuser.getTell());
+			pstmt.setString(3, accountuser.getMail());
+			pstmt.setString(4, salt);
+			pstmt.setString(5, hashedPw);
+
 			pstmt.setString(3, account.getMail());
 			pstmt.setString(2,account.getTell());
 			pstmt.setString(4, salt);
 			pstmt.setString(5, hashedPw);
 			pstmt.setString(1, account.getName());
+
 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -251,4 +268,38 @@ public class AccountDAO {
 		}
 		return result;
 	}
+
+	public static List<Account3> selectAllaccountcuser() {
+
+		String sql = "SELECT * FROM accountuser";
+
+		List<Account3> result = new ArrayList<>();
+		
+		
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			
+			try (ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					Integer id = rs.getInt("id");
+					String name = rs.getString("name");
+					String mail = rs.getString("mail");
+					Account3 accountuser = new Account3(id, name, mail);
+					
+					result.add(accountuser);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		} 
+
+		// Listを返却する。0件の場合は空のListが返却される。
+		return result;
+	}
+
+
 }

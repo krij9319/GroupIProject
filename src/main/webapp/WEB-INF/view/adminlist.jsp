@@ -7,6 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<title>利用者管理者一覧</title>
+</head>
+<body>
+<h1>利用者及び管理者一覧</h1>
+
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel ="stylesheet"href="css/hamburger.css">
 
@@ -31,11 +37,13 @@
     </div>
 
 <h1>管理者一覧</h1>
+
 	<table>
 		<tr>
 			<th>ID</th>
 			<th>名前</th>
 			<th>メールアドレス</th>
+			
 		</tr>
 			<%
 	List<Account> list = (ArrayList<Account>)request.getAttribute("list");
@@ -48,6 +56,10 @@
 		</tr>
 	<%} %>
 	</table>
+
+	<a href="AccountManagementServlet">戻る</a>
+
 	<script src="./JavaScript/hamburger.js"></script>
+
 </body>
 </html>

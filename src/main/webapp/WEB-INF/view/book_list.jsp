@@ -53,6 +53,12 @@
             <td><%=b.getAuther() %></td>
             <td><%=b.getPublisher() %></td>
             <td><%=b.getRegister_day() %></td>
+
+		</tr>
+		<%} %>
+		</table>
+<a href="BookManagementServlet">戻る</a>
+
             <td><%=b.getBooksitu() %></td>
         </tr>
         <%} %>
@@ -63,5 +69,6 @@
 		<div class="back"><a href="AdominTopServlet">戻る</a></div>
 	</div>
 	<script src="./JavaScript/hamburger.js"></script>
+
 </body>
 </html>

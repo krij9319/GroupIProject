@@ -10,6 +10,20 @@ public class Account{
 	private String salt;
 	private String hashedPassword;
 	
+	public Account(int id,String name,String tell,String mail, String password,int situation,
+			String salt,String hashedPassword) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.tell = tell;
+		this.mail = mail;
+		this.password = password;
+		this.situation = situation;
+		this.salt = salt;
+		this.hashedPassword = hashedPassword;
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -74,16 +88,4 @@ public class Account{
 		this.hashedPassword = hashedPassword;
 	}
 
-	public Account(int id, String name, String tell, String mail, String password, int situation, String salt,
-			String hashedPassword) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.tell = tell;
-		this.mail = mail;
-		this.password = password;
-		this.situation = situation;
-		this.salt = salt;
-		this.hashedPassword = hashedPassword;
-	}
 }
