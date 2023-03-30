@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dto.BookDto3" %>
+<%@ page import="dto.BookHistoryDto1" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +14,7 @@
 	<div class="main">
 		<table border="1">
 			<tr>
+				<th>メールアドレス</th>
 				<th>ID</th>
 				<th>利用者ID</th>
 				<th>図書ID</th>
@@ -22,13 +23,14 @@
 				<th>返却日</th>
 			</tr>
 			<%
-			List<BookDto3> book = (ArrayList<BookDto3>)request.getAttribute("book");
-			for(BookDto3 all : book){
+			List<BookHistoryDto1> book = (ArrayList<BookHistoryDto1>)request.getAttribute("book");
+			for(BookHistoryDto1 all : book){
 			%>
 				<tr>
+					<td><%=all.getEmail() %></td>
 					<td><%=all.getId() %></td>
-					<td><%=all.getAccount_id() %></td>
-					<td><%=all.getBook_id() %></td>
+					<td><%=all.getId() %></td>
+					<td><%=all.getIsbn() %></td>
 					<td><%=all.getLendday() %></td>
 					<td><%=all.getScheduledday() %></td>
 					<td><%=all.getReturnday() %></td>
@@ -39,7 +41,8 @@
 		</table>
 	</div>
 	<div class="main-end">
-		<a href="WEB-INF/view/adminmenu.jsp">戻る</a>
+		<a href="ReturnAdmenuServlet">戻る</a>
+		<a></a>
 	</div>
 </body>
 </html>

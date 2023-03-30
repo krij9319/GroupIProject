@@ -48,7 +48,7 @@
    <span>図書削除</span>
    <span>本の編集</span>
    <br>
-   <div class="back"><a href="AdominTopServlet">戻る</a></div>
+   <div class="back"><a href="ReturnAdmenuServlet">戻る</a></div>
    
 	<script src="./JavaScript/hamburger.js"></script>
 </body>
