@@ -14,9 +14,9 @@ import dao.Dao;
 import dto.BookDto3;
 
 /**
- * Servlet implementation class Book_HistoryServlet
+ * Servlet implementation class Book_HistoryServlet2
  */
-@WebServlet("/Book_HistoryServlet")
+@WebServlet("/Book_HistoryServlet2")
 public class Book_HistoryServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
