@@ -22,12 +22,13 @@
       <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
     
-      <div class="menu">
+     <div class="menu">
       <div class="menu__item"><a href="AdominTopServlet">TOP</a></div>
       <div class="menu__item"><a href="AccountManagementServlet">アカウント管理</a></div>
       <div class="menu__item"><a href="BookManagementServlet">図書管理</a></div>
+      <div class="menu__item"><a href="Book_HistoryServlet2">履歴</a></div>
+      <div class="menu__item"><a href="LogoutServlet">ログアウト</a></div>
     </div>
-    
   <!--メニュー画面-->
   <div class="haba">
 	<a href="adminFormServlet">

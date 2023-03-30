@@ -23,16 +23,18 @@
     </button>
     
     <div class="menu">
-      <div class="menu__item"><a href="AdominTopServlet">TOP</a></div>
-      <div class="menu__item"><a href="AccountManagementServlet">アカウント管理</a></div>
-      <div class="menu__item"><a href="BookManagementServlet">図書管理</a></div>
+      <div class="menu__item"><a href="TopServlet">TOP</a></div>
+      <div class="menu__item"><a href="SelectBookServlet">図書一覧</a></div>
+      <div class="menu__item"><a href="Book_HistoryServlet">履歴</a></div>
+      <div class="menu__item"><a href="LogoutServlet">ログアウト</a></div>
     </div>
     
   <!--メニュー画面-->
 
-  <img class="osirase" src="./img/グループ 10.png" alt="おしらせ">
-
+  <p> </p><br><br><br><br><br>
+<br><br>
   <div class="haba">
+
 	<a href="SelectBookServlet">
   		<img class="img1" src="./img/図1.png" alt="図書一覧">
 	</a>
