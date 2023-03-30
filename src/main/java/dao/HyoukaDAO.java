@@ -54,7 +54,7 @@ public class HyoukaDAO {
 	}
 	public static List<KuchikomiDto1> selectAllhyouka() {
 
-		String sql = "SELECT * FROM hyouka";
+		String sql = "SELECT * FROM hyouka ORDER BY id ASC";
 
 		List<KuchikomiDto1> result = new ArrayList<>();
 		

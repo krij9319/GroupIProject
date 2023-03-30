@@ -81,7 +81,7 @@ public class Dao {
 	}
 	
 	public static List<BookDto4> search(String name){
-		String sql = "SELECT * FROM book WHERE name LIKE ?";
+		String sql = "SELECT * FROM book WHERE name LIKE ? ORDER BY id ASC";
 		List<BookDto4> result = new ArrayList<>();
 		
 		try(
@@ -413,7 +413,7 @@ public class Dao {
 	}
 
 	public static List<BookHistoryDto1> history() {
-		String sql = "select email,book.id,isbn,book.name,lendday,scheduledday,returnday from accountuser,book,book_history where accountuser.id = book_history.book_id and book.id = book_history.book_id";
+		String sql = "select email,book.id,isbn,book.name,lendday,scheduledday,returnday from accountuser,book,book_history where accountuser.id = book_history.book_id and book.id = book_history.book_id ORDER BY id ASC";
 		List<BookHistoryDto1> result = new ArrayList<>();
 		
 		try (
@@ -447,7 +447,7 @@ public class Dao {
 	}
 	
 	public static List<BookDto5> history2() {
-		String sql = "select id,account_id,book_id,lendday,scheduledday,returnday from book_history";
+		String sql = "select id,account_id,book_id,lendday,scheduledday,returnday from book_history order by id asc";
 		List<BookDto5> result = new ArrayList<>();
 		
 		try (
@@ -518,7 +518,7 @@ public class Dao {
 	}
 	
 	public static List<Account3> accountuser() {
-		String sql = "SELECT id,name,email FROM accountuser";
+		String sql = "SELECT id,name,email FROM accountuser ORDER BY id ASC";
 		List<Account3> result = new ArrayList<>();
 		
 		try (

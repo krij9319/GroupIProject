@@ -29,7 +29,7 @@ public class BookDAO {
 	}
 	public static List<BookDto1> selectAllbook() {
 
-		String sql = "SELECT * FROM book";
+		String sql = "SELECT * FROM book ORDER BY id ASC";
 
 		List<BookDto1> result = new ArrayList<>();
 		

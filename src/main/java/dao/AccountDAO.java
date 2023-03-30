@@ -40,7 +40,7 @@ public class AccountDAO {
 		// 返却用変数
 		List<Account> result = new ArrayList<>();
 
-		String sql = "SELECT * FROM accountuser WEHRE situation = 1";
+		String sql = "SELECT * FROM accountuser WHERE situation = 1 ORDER BY id ASC";
 		
 		try (
 				Connection con =getConnection();
@@ -259,7 +259,7 @@ public class AccountDAO {
 
 	public static List<Account3> selectAllaccountcuser() {
 
-		String sql = "SELECT * FROM accountuser";
+		String sql = "SELECT * FROM accountuser ORDER BY id ASC";
 
 		List<Account3> result = new ArrayList<>();
 		
