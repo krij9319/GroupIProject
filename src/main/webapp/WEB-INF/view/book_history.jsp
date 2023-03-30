@@ -39,9 +39,7 @@
 		</table>
 	</div>
 	<div class="main-end">
-		<form action="WEB-INF/view/menu.jsp">
-			<input type="submit" value="メニューに戻る">
-		</form>
+		<a href="ReturnMenuServlet">メニューに戻る</a>
 	</div>
 </body>
 </html>
