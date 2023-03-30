@@ -16,6 +16,7 @@ import dto.BookDto1;
 import dto.BookDto2;
 import dto.BookDto3;
 import dto.BookDto4;
+import dto.BookDto5;
 import dto.BookHistoryDto1;
 import dto.LendDto1;
 import dto.LendDto2;
@@ -430,6 +431,39 @@ public class Dao {
 					String returnday = rs.getString("returnday");
 					
 					BookHistoryDto1 book = new BookHistoryDto1(email,id,isbn,name,lendday,scheduledday,returnday);
+					
+					result.add(book);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		} 
+
+		// Listを返却する。0件の場合は空のListが返却される。
+		return result;
+	}
+	
+	public static List<BookDto5> history2() {
+		String sql = "select id,account_id,book_id,lendday,scheduledday,returnday from book_history";
+		List<BookDto5> result = new ArrayList<>();
+		
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			
+			try (ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					int id = rs.getInt("id");
+					int account_id = rs.getInt("account_id");
+					int book_id = rs.getInt("book_id");
+					String lendday = rs.getString("lendday");
+					String scheduledday = rs.getString("scheduledday");
+					String returnday = rs.getString("returnday");
+					
+					BookDto5 book = new BookDto5(id,account_id,book_id,lendday,scheduledday,returnday);
 					
 					result.add(book);
 				}
