@@ -53,17 +53,12 @@
             <td><%=b.getAuther() %></td>
             <td><%=b.getPublisher() %></td>
             <td><%=b.getRegister_day() %></td>
+            <td><%=b.getBooksitu() %></td>
 
 		</tr>
 		<%} %>
 		</table>
-<a href="BookManagementServlet">戻る</a>
-
-            <td><%=b.getBooksitu() %></td>
-        </tr>
-        <%} %>
-    </table>
-</div>
+	</div>
 
 	<div class="main-end">
 		<div class="back"><a href="AdominTopServlet">戻る</a></div>

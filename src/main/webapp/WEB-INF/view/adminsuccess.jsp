@@ -9,9 +9,6 @@
 <body>
 <h1>登録完了!</h1>
 
-<a href="adminFormServlet">続けて登録</a>
-<a href="AccountManagementServlet">メニューに戻る</a>
-
 <a href="ReturnAdmenuServlet">メニューに戻る</a>
 <a href="adminFormServlet">続けて登録</a>
 

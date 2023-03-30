@@ -38,11 +38,7 @@ public class adminConfirmServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String pw = request.getParameter("pw");
 		
-
 		Account accountuser = new Account(-1,name,tell,mail,pw,1,null,null);
-
-		Account account = new Account(-1, name, tel,mail,pw,0,null,null);
-
 		
 		// セッションスコープのインスタンス取得
 		HttpSession session = request.getSession();

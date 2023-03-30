@@ -13,13 +13,9 @@
 		Account account = (Account)session.getAttribute("input_data");
 	%>
 
-	メール：<%=account.getMail() %><br>
-	パスワード：********<br>
-	名前：<%=account.getName() %><br>
-
 	名前<br><%=account.getName() %><br>
 	メール<br><%=account.getMail() %><br>
-	パスワード<br>********</p><br>
+	パスワード<br>********<br>
 	電話番号<br><%=account.getTell() %><br>
 
 	<a href="adminExecuteServlet">OK</a><br>

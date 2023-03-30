@@ -62,7 +62,7 @@
 			タイトル<input type="text" name="name"><br>
 			著者<input type="text" name="auther"><br>
 			出版社<input type="text" name="publisher"><br>
-		<input class="up" type="submit" value="削除" class="button1">
+		<input class="up" type="submit" value="編集" class="button1">
 		
 			</div>
 		</form>

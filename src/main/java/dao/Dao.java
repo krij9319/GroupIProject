@@ -95,11 +95,7 @@ public class Dao {
 					int isbn = rs.getInt("isbn");
 					String auther = rs.getString("auther");
 					String publisher = rs.getString("publisher");
-					String register_day = rs.getString("register_day");
 					
-
-					BookDto1 book = new BookDto1(-1,isbn,name,auther,publisher,register_day);
-
 					BookDto4 book = new BookDto4(-1,isbn,name,auther,publisher);
 
 					

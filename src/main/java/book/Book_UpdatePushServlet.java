@@ -38,13 +38,8 @@ public class Book_UpdatePushServlet extends HttpServlet {
 			String name = request.getParameter("name");
 			String auther = request.getParameter("auther");
 			String publisher = request.getParameter("publisher");
-			
 			int id = Integer.parseInt(request.getParameter("id"));
-			String register_day = request.getParameter("register_day");
 			
-
-			BookDto1 book = new BookDto1(id,isbn,name,auther,publisher,register_day);
-
 			BookDto4 book = new BookDto4(id,isbn,name,auther,publisher);
 
 			

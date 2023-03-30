@@ -222,9 +222,6 @@ public class AccountDAO {
 		}
 		return result;
 	}
-
-	public static int registerAccount1(Account accountuser) {
-
 	
 	public static int registerAccount2(Account account) {
 
@@ -235,21 +232,12 @@ public class AccountDAO {
 		String salt = GenerateSalt.getSalt(32);
 		
 		// 取得したソルトを使って平文PWをハッシュ
-
-		String hashedPw = GenerateHashedPw.getSafetyPassword(accountuser.getPassword(), salt);
-
 		String hashedPw = GenerateHashedPw.getSafetyPassword(account.getPassword(), salt);
 
 		try (
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
-
-			pstmt.setString(1, accountuser.getName());
-			pstmt.setString(2,accountuser.getTell());
-			pstmt.setString(3, accountuser.getMail());
-			pstmt.setString(4, salt);
-			pstmt.setString(5, hashedPw);
 
 			pstmt.setString(3, account.getMail());
 			pstmt.setString(2,account.getTell());
