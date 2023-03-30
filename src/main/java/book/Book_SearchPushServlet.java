@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import dto.BookDto1;
+import dto.BookDto4;
 
 /**
  * Servlet implementation class Book_SearchPushServlet
@@ -37,7 +37,7 @@ public class Book_SearchPushServlet extends HttpServlet {
 		try {
 			String name = request.getParameter("name");
 			
-			List<BookDto1> list = Dao.search(name);
+			List<BookDto4> list = Dao.search(name);
 			request.setAttribute("list", list);
 			
 			if(list.size() > 0) {
