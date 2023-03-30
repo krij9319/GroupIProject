@@ -11,10 +11,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import dto.Account3;
 import dto.BookDto1;
 import dto.BookDto2;
 import dto.BookDto3;
 import dto.BookDto4;
+import dto.BookDto5;
 import dto.BookHistoryDto1;
 import dto.LendDto1;
 import dto.LendDto2;
@@ -443,6 +445,39 @@ public class Dao {
 		return result;
 	}
 	
+	public static List<BookDto5> history2() {
+		String sql = "select id,account_id,book_id,lendday,scheduledday,returnday from book_history";
+		List<BookDto5> result = new ArrayList<>();
+		
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			
+			try (ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					int id = rs.getInt("id");
+					int account_id = rs.getInt("account_id");
+					int book_id = rs.getInt("book_id");
+					String lendday = rs.getString("lendday");
+					String scheduledday = rs.getString("scheduledday");
+					String returnday = rs.getString("returnday");
+					
+					BookDto5 book = new BookDto5(id,account_id,book_id,lendday,scheduledday,returnday);
+					
+					result.add(book);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		} 
+
+		// Listを返却する。0件の場合は空のListが返却される。
+		return result;
+	}
+	
 	public static int booksitu(LendDto2 book2) {
 		String sql = "UPDATE book SET booksitu = '貸出中' WHERE id = ?";
 		int result = 0;
@@ -478,6 +513,36 @@ public class Dao {
 		}finally {
 			System.out.println(result + "件更新しました。");
 		}
+		return result;
+	}
+	
+	public static List<Account3> accountuser() {
+		String sql = "SELECT id,name,email FROM accountuser";
+		List<Account3> result = new ArrayList<>();
+		
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			
+			try (ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					int id = rs.getInt("id");
+					String name = rs.getString("name");
+					String email = rs.getString("email");
+					
+					Account3 account = new Account3(id,name,email);
+					
+					result.add(account);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		} 
+
+		// Listを返却する。0件の場合は空のListが返却される。
 		return result;
 	}
 }

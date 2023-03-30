@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,22 +9,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import dao.AccountDAO;
-import dto.Account;
+import dao.Dao;
+import dto.Account3;
 
 /**
- * Servlet implementation class adminExecuteServlet
+ * Servlet implementation class AccountDelServlet
  */
-@WebServlet("/adminExecuteServlet")
-public class adminExecuteServlet extends HttpServlet {
+@WebServlet("/AccountDelServlet")
+public class AccountDelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public adminExecuteServlet() {
+    public AccountDelServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +32,13 @@ public class adminExecuteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-
-		// 入力データの取得
-		Account account = (Account)session.getAttribute("input_data");
+		request.setCharacterEncoding("UTF-8");
+		List<Account3> account = Dao.accountuser();
 		
-		// 登録処理
-		int result = AccountDAO.registerAccount2(account);
+		request.setAttribute("account", account);
 		
-		String path = "";
-		if(result == 1) {
-			// 登録に成功したので、sessionのデータを削除
-			session.removeAttribute("input_data");
-			
-			path = "WEB-INF/view/adminsuccess.jsp";
-		} else {
-			// 失敗した場合はパラメータ付きで登録画面に戻す
-			path = "WEB-INF/view/adminform.jsp?error=1";
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		String view = "WEB-INF/view/accountdel.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
 

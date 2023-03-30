@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dto.BookDto3" %>
+<%@ page import="dto.BookDto5" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,16 +25,16 @@
 				<th>返却日</th>
 			</tr>
 			<%
-			List<BookDto3> book = (ArrayList<BookDto3>)request.getAttribute("book");
-			for(BookDto3 all : book){
+			List<BookDto5> book = (ArrayList<BookDto5>)request.getAttribute("book");
+			for(BookDto5 all : book){
 			%>
 				<tr>
-					<td><a href=""><%=all.getId() %></a></td>
-					<td><a href=""><%=all.getAccount_id() %></a></td>
-					<td><a href=""><%=all.getBook_id() %></a></td>
-					<td><a href=""><%=all.getLendday() %></a></td>
-					<td><a href=""><%=all.getScheduledday() %></a></td>
-					<td><a href=""><%=all.getReturnday() %></a></td>
+					<td><a href="SelectHyoukaServlet"><%=all.getId() %></a></td>
+					<td><a href="SelectHyoukaServlet"><%=all.getAccount_id() %></a></td>
+					<td><a href="SelectHyoukaServlet"><%=all.getBook_id() %></a></td>
+					<td><a href="SelectHyoukaServlet"><%=all.getLendday() %></a></td>
+					<td><a href="SelectHyoukaServlet"><%=all.getScheduledday() %></a></td>
+					<td><a href="SelectHyoukaServlet"><%=all.getReturnday() %></a></td>
 				</tr>
 			<%
 			}

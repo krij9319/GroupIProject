@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1>投稿完了!</h1>
-<a href="index.jsp">戻る</a>
+<a href="ReturnMenuServlet">戻る</a>
 </body>
 </html>
