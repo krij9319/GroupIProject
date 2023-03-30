@@ -8,7 +8,12 @@
 </head>
 <body>
 	<h1>削除完了!</h1>
+    <a href="ReturnAdmenuServlet">メニューに戻る</a>
 	<a href="accountdel">続けて削除</a>
+
     <a href="AccountManagementServlet">メニューに戻る</a>
+
+
+
 </body>
 </html>

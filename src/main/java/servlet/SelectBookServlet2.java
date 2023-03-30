@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,17 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.BookDAO;
+import dto.BookDto1;
+
 /**
- * Servlet implementation class del
+ * Servlet implementation class SelectQuiz
  */
-@WebServlet("/accountdel")
-public class accountdelServlet extends HttpServlet {
+@WebServlet("/SelectBookServlet2")
+public class SelectBookServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public accountdelServlet() {
+    public SelectBookServlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +32,13 @@ public class accountdelServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "WEB-INF/view/accountdel.jsp";
+		// DBから全件データを取得
+		List<BookDto1> bookList = BookDAO.selectAllbook();
+		
+		// 取得したリストをリクエストスコープに保管(JSPに渡すため)
+		request.setAttribute("list", bookList);
+		
+		String view = "WEB-INF/view/book_list2.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

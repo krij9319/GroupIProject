@@ -22,21 +22,29 @@
       <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
     
-      <div class="menu">
+     <div class="menu">
       <div class="menu__item"><a href="AdominTopServlet">TOP</a></div>
       <div class="menu__item"><a href="AccountManagementServlet">アカウント管理</a></div>
       <div class="menu__item"><a href="BookManagementServlet">図書管理</a></div>
+      <div class="menu__item"><a href="Book_HistoryServlet2">履歴</a></div>
+      <div class="menu__item"><a href="LogoutServlet">ログアウト</a></div>
     </div>
-    
   <!--メニュー画面-->
   <div class="haba">
 	<a href="adminFormServlet">
   		<img class="img4" src="./img/画像 5.png" alt="管理者登録">
 	</a>
+
     <a href="adminlistServlet">
   		<img class="img5" src="./img/一覧.png" alt="管理者・利用者の一覧">
 	</a>
 	<a href="accountdel">
+
+    <a href="AccountAllServlet">
+  		<img class="img5" src="./img/一覧.png" alt="管理者・利用者の一覧">
+	</a>
+	<a href="AccountDelServlet">
+
   		<img class="img6" src="./img/画像 8.png" alt="管理者・利用者の削除">
 	</a>
 </div>

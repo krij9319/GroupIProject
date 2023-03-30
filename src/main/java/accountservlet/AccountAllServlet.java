@@ -1,4 +1,4 @@
-package book;
+package accountservlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import dto.BookDto4;
+import dto.Account3;
 
 /**
- * Servlet implementation class Book_SearchPushServlet
+ * Servlet implementation class AccountAllServlet
  */
-@WebServlet("/Book_SearchPushServlet")
-public class Book_SearchPushServlet extends HttpServlet {
+@WebServlet("/AccountAllServlet")
+public class AccountAllServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Book_SearchPushServlet() {
+    public AccountAllServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,25 +33,13 @@ public class Book_SearchPushServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		List<Account3> account = Dao.accountuser();
 		
-		try {
-			String name = request.getParameter("name");
-			
-			List<BookDto4> list = Dao.search(name);
-			request.setAttribute("list", list);
-			
-			if(list.size() > 0) {
-				String view = "WEB-INF/view/search_success.jsp";
-				RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-				dispatcher.forward(request, response);
-			}else {
-				String view = "WEB-INF/view/book_list.jsp";
-				RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-				dispatcher.forward(request, response);
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		request.setAttribute("account", account);
+		
+		String view = "WEB-INF/view/accountall.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+		dispatcher.forward(request, response);
 	}
 
 	/**

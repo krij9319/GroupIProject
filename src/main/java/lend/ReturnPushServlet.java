@@ -35,15 +35,18 @@ public class ReturnPushServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		try {
+			int id = Integer.parseInt(request.getParameter("book_id"));
 			int book_id = Integer.parseInt(request.getParameter("book_id"));
 			String returnday = request.getParameter("returnday");
 			
 			ReturnDto book = new ReturnDto(book_id);
+			ReturnDto book2 = new ReturnDto(id);
 			ReturnDto2 day = new ReturnDto2(book_id,returnday);
 			
 			int result = Dao.returnday(day);
 			result = Dao.returnhistory(day);
 			result = Dao.returnbook(book);
+			result = Dao.booksitu2(book2);
 			
 			if(result >= 1) {
 				String view = "WEB-INF/view/return-success.jsp";

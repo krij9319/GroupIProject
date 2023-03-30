@@ -2,20 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dto.BookHistoryDto1" %>
+<%@ page import="dto.BookDto1" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="favicon/library.jpg">
-<link rel="icon" href="favicon/library.jpg">
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel ="stylesheet"href="css/list.css">
   <link rel ="stylesheet"href="css/hamburger.css">
-<title>貸出履歴</title>
+<title>本の一覧</title>
 </head>
 <body>
-
 
 	<header id="header">
  	<p>
@@ -26,7 +23,7 @@
       <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
     
-       <div class="menu">
+      <div class="menu">
       <div class="menu__item"><a href="AdominTopServlet">TOP</a></div>
       <div class="menu__item"><a href="AccountManagementServlet">アカウント管理</a></div>
       <div class="menu__item"><a href="BookManagementServlet">図書管理</a></div>
@@ -37,40 +34,34 @@
 
 <p> </p><br><br><br><br><br>
 
-	<div class="main">
-		<table id="hyou" border="1" style="width: 800px; font-size: 14px;">
-			<tr>
-				<th>メールアドレス</th>
-				<th>ID</th>
-				<th>利用者ID</th>
-				<th>図書ID</th>
-				<th>貸出日</th>
-				<th>返却予定日</th>
-				<th>返却日</th>
-			</tr>
-			<%
-			List<BookHistoryDto1> book = (ArrayList<BookHistoryDto1>)request.getAttribute("book");
-			for(BookHistoryDto1 all : book){
-			%>
-				<tr>
-					<td><%=all.getEmail() %></td>
-					<td><%=all.getId() %></td>
-					<td><%=all.getId() %></td>
-					<td><%=all.getIsbn() %></td>
-					<td><%=all.getLendday() %></td>
-					<td><%=all.getScheduledday() %></td>
-					<td><%=all.getReturnday() %></td>
-				</tr>
-			<%
-			}
-			%>
-		</table>
-	</div>
+<div class="center">
+    <table id="hyou" border="1" style="width: 800px; font-size: 14px;">
+        <tr>
+            <th>ID</th>
+            <th>ISBN</th>
+            <th>タイトル</th>
+            <th>著者</th>
+            <th>出版社</th>
+            <th>発効日</th>
+            <th>貸出状況</th>
+        </tr>
+        <% List<BookDto1> list = (List<BookDto1>)request.getAttribute("list"); int index = 1; for(BookDto1 b : list){ %>
+        <tr>
+            <td><%=b.getId() %></td>
+            <td><%=b.getIsbn()%></td>
+            <td><%=b.getName() %></td>
+            <td><%=b.getAuther() %></td>
+            <td><%=b.getPublisher() %></td>
+            <td><%=b.getRegister_day() %></td>
+            <td><%=b.getBooksitu() %></td>
+        </tr>
+        <%} %>
+    </table>
+</div>
+
 	<div class="main-end">
-		<div class="back"><a href="ReturnAdmenuServlet">戻る</a></div>
-		<a></a>
+		<div class="back"><a href="TopServlet">戻る</a></div>
 	</div>
-	 <script src="./JavaScript/hamburger.js"></script>
-	
+	<script src="./JavaScript/hamburger.js"></script>
 </body>
 </html>

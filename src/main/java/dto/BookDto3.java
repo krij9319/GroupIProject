@@ -2,20 +2,18 @@ package dto;
 
 public class BookDto3 {
 	private int id;
-	private int account_id;
-	private int book_id;
-	private String lendday;
-	private String scheduledday;
-	private String returnday;
+	private int isbn;
+	private String name;
+	private String register_day;
+	private String booksitu;
 	
-	public BookDto3(int id, int account_id, int book_id, String lendday, String scheduledday, String returnday) {
+	public BookDto3(int id, int isbn, String name, String register_day, String booksitu) {
 		super();
 		this.id = id;
-		this.account_id = account_id;
-		this.book_id = book_id;
-		this.lendday = lendday;
-		this.scheduledday = scheduledday;
-		this.returnday = returnday;
+		this.isbn = isbn;
+		this.name = name;
+		this.register_day = register_day;
+		this.booksitu = booksitu;
 	}
 
 	public int getId() {
@@ -26,43 +24,35 @@ public class BookDto3 {
 		this.id = id;
 	}
 
-	public int getAccount_id() {
-		return account_id;
+	public int getIsbn() {
+		return isbn;
 	}
 
-	public void setAccount_id(int account_id) {
-		this.account_id = account_id;
+	public void setIsbn(int isbn) {
+		this.isbn = isbn;
 	}
 
-	public int getBook_id() {
-		return book_id;
+	public String getName() {
+		return name;
 	}
 
-	public void setBook_id(int book_id) {
-		this.book_id = book_id;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLendday() {
-		return lendday;
+	public String getRegister_day() {
+		return register_day;
 	}
 
-	public void setLendday(String lendday) {
-		this.lendday = lendday;
+	public void setRegister_day(String register_day) {
+		this.register_day = register_day;
 	}
 
-	public String getScheduledday() {
-		return scheduledday;
+	public String getBooksitu() {
+		return booksitu;
 	}
 
-	public void setScheduledday(String scheduledday) {
-		this.scheduledday = scheduledday;
-	}
-
-	public String getReturnday() {
-		return returnday;
-	}
-
-	public void setReturnday(String returnday) {
-		this.returnday = returnday;
+	public void setBooksitu(String booksitu) {
+		this.booksitu = booksitu;
 	}
 }

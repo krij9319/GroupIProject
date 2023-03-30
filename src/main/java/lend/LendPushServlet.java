@@ -62,6 +62,8 @@ public class LendPushServlet extends HttpServlet {
 				result = Dao.lend14_2(book2);
 			}
 			
+			result = Dao.booksitu(book2);
+			
 			if(result >= 1) {
 				String view = "WEB-INF/view/lend_success.jsp";
 				RequestDispatcher dispatcher = request.getRequestDispatcher(view);

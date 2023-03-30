@@ -13,7 +13,7 @@
 	</div>
 	<div class="main-end">
 		<a href="ReturnAdmenuServlet">メニューに戻る</a>
-		<a href="Book_UpdateServlet">メニューに戻る</a>
+		<a href="Book_UpdateServlet">続けて編集</a>
 	</div>
 </body>
 </html>
