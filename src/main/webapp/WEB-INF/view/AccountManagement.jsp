@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +22,10 @@
       <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
     
-    <div class="menu">
-      <div class="menu__item">TOP</div>
-      <div class="menu__item">ABOUT</div>
-      <div class="menu__item">BLOG</div>
-      <div class="menu__item">CONTACT</div>
+      <div class="menu">
+      <div class="menu__item"><a href="AdominTopServlet">TOP</a></div>
+      <div class="menu__item"><a href="AccountManagementServlet">アカウント管理</a></div>
+      <div class="menu__item"><a href="BookManagementServlet">図書管理</a></div>
     </div>
     
   <!--メニュー画面-->
@@ -41,7 +44,7 @@
     <span>管理者・利用者の一覧</span>
     <span>管理者・利用者の削除</span>
     <br>
-    <div class="back"><a href="">戻る</a></div>
-	<script src="./js/index.js"></script>
+    <div class="back"><a href="AdominTopServlet">戻る</a></div>
+	<script src="./JavaScript/hamburger.js"></script>
 </body>
 </html>
