@@ -30,6 +30,7 @@
 		<input type="submit" value="投稿">
 	
 	</form>
+	<a href="ReturnMenuServlet">戻る</a>
 	<% } %>
 </body>
 </html>

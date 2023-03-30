@@ -28,6 +28,6 @@
 		<%} %>
 		</table>
 		<a href="Hyouka_postServlet">口コミを投稿する</a>
-		<a href="ReturnAdmenuServlet">戻る</a>
+		<a href="ReturnMenuServlet">戻る</a>
 </body>
 </html>
