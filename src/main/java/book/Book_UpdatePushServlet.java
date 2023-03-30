@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import dto.BookDto1;
+import dto.BookDto4;
 
 /**
  * Servlet implementation class Book_UpdatePushServlet
@@ -38,9 +38,10 @@ public class Book_UpdatePushServlet extends HttpServlet {
 			String name = request.getParameter("name");
 			String auther = request.getParameter("auther");
 			String publisher = request.getParameter("publisher");
+			
 			int id = Integer.parseInt(request.getParameter("id"));
 			
-			BookDto1 book = new BookDto1(id,isbn,name,auther,publisher);
+			BookDto4 book = new BookDto4(id,isbn,name,auther,publisher);
 			
 			int result = Dao.update(book);
 			

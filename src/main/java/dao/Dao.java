@@ -14,6 +14,7 @@ import java.util.List;
 import dto.BookDto1;
 import dto.BookDto2;
 import dto.BookDto3;
+import dto.BookDto4;
 import dto.BookHistoryDto1;
 import dto.LendDto1;
 import dto.LendDto2;
@@ -77,9 +78,9 @@ public class Dao {
 		return result;
 	}
 	
-	public static List<BookDto1> search(String name){
+	public static List<BookDto4> search(String name){
 		String sql = "SELECT * FROM book WHERE name LIKE ?";
-		List<BookDto1> result = new ArrayList<>();
+		List<BookDto4> result = new ArrayList<>();
 		
 		try(
 				Connection con = getConnection();
@@ -93,7 +94,7 @@ public class Dao {
 					String auther = rs.getString("auther");
 					String publisher = rs.getString("publisher");
 					
-					BookDto1 book = new BookDto1(-1,isbn,name,auther,publisher);
+					BookDto4 book = new BookDto4(-1,isbn,name,auther,publisher);
 					
 					result.add(book);
 				}
@@ -104,7 +105,7 @@ public class Dao {
 		return result;
 	}
 	
-	public static int update(BookDto1 book) {
+	public static int update(BookDto4 book) {
 		String sql = "UPDATE book SET isbn = ?,name = ?,auther = ?,publisher = ? WHERE id = ?";
 		int result = 0;
 		
