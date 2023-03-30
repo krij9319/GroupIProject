@@ -12,12 +12,8 @@
 		<h1>返却成功！</h1>
 	</div>
 	<div class="main-end">
-		<form action="WEB-INF/view/adminmenu.jsp">
-			<input type="submit" value="メニューへ戻る" class="button1">
-		</form>
-		<form action="ReturnServlet">
-			<input type="submit" value="続けて返却" class="button2">
-		</form>
+		<a href="ReturnAdmenuServlet">メニューに戻る</a>
+		<a href="ReturnServlet">続けて返却</a>
 	</div>
 </body>
 </html>

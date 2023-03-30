@@ -12,12 +12,8 @@
 		<h1>貸出完了！</h1>
 	</div>
 	<div class="main-end">
-		<form action="WEB-INF/view/adminmenu.jsp">
-			<input type="submit" value="メニューへ戻る" class="button1">
-		</form>
-		<form action="LendInputServlet">
-			<input type="submit" value="続けて借りる" class="button2">
-		</form>
+		<a href="ReturnAdmenuServlet">メニューに戻る</a>
+		<a href="LendInputServlet">続けて貸出</a>
 	</div>
 </body>
 </html>

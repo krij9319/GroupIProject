@@ -35,9 +35,7 @@
 	%>
 	</div>
 	<div class="main-end">
-		<form action="./">
-			<input type="submit" value="戻る" class="button2">
-		</form>
+		<a href="ReturnAdmenuServlet">メニューに戻る</a>
 	</div>
 </body>
 </html>

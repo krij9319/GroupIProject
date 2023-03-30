@@ -12,12 +12,8 @@
 		<h1>削除完了！</h1>
 	</div>
 	<div class="main-end">
-		<form action="./">
-			<input type="submit" value="メニューに戻る">
-		</form>
-		<form action="Book_DeleteServlet">
-			<input type="submit" value="続けて削除">
-		</form>
+		<a href="ReturnAdmenuServlet">メニューに戻る</a>
+		<a href="Book_DeleteServlet">続けて削除</a>
 	</div>
 </body>
 </html>

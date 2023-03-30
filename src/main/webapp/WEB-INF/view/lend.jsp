@@ -17,9 +17,7 @@
 		</form>
 	</div>
 	<div class="end">
-		<form action="WEB-INF/view/adminmenu.jsp">
-			<input type="submit" value="メニューに戻る">
-		</form>
+		<a href="ReturnAdmenuServlet">メニューに戻る</a>
 	</div>
 </body>
 </html>

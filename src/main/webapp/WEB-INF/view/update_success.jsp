@@ -12,12 +12,8 @@
 		<h1>編集完了！</h1>
 	</div>
 	<div class="main-end">
-		<form action="./">
-			<input type="submit" value="メニューに戻る">
-		</form>
-		<form action="Book_UpdateServlet">
-			<input type="submit" value="続けて編集">
-		</form>
+		<a href="ReturnAdmenuServlet">メニューに戻る</a>
+		<a href="Book_UpdateServlet">メニューに戻る</a>
 	</div>
 </body>
 </html>
