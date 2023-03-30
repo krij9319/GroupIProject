@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import dto.BookDto3;
+import dto.BookHistoryDto1;
 
 /**
  * Servlet implementation class Book_HistoryServlet2
@@ -33,7 +33,7 @@ public class Book_HistoryServlet2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		List<BookDto3> book = Dao.all();
+		List<BookHistoryDto1> book = Dao.history();
 		
 		request.setAttribute("book", book);
 		

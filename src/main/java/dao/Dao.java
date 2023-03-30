@@ -14,6 +14,7 @@ import java.util.List;
 import dto.BookDto1;
 import dto.BookDto2;
 import dto.BookDto3;
+import dto.BookHistoryDto1;
 import dto.LendDto1;
 import dto.LendDto2;
 import dto.ReturnDto;
@@ -303,7 +304,7 @@ public class Dao {
 	}
 
 	public static int returnhistory(ReturnDto2 book3) {
-		String sql = "UPDATE book_lend SET returnday = NOW() WHERE book_id = ?";
+		String sql = "UPDATE book_history SET returnday = NOW() WHERE book_id = ?";
 		int result = 0;
 		
 		try(
@@ -405,6 +406,40 @@ public class Dao {
 		}catch(SQLException | URISyntaxException e) {
 			e.printStackTrace();
 		}
+		return result;
+	}
+
+	public static List<BookHistoryDto1> history() {
+		String sql = "select email,book.id,isbn,book.name,lendday,scheduledday,returnday from accountuser,book,book_history where accountuser.id = book_history.book_id and book.id = book_history.book_id";
+		List<BookHistoryDto1> result = new ArrayList<>();
+		
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			
+			try (ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					String email = rs.getString("email");
+					int id = rs.getInt("id");
+					int isbn = rs.getInt("isbn");
+					String name = rs.getString("name");
+					String lendday = rs.getString("lendday");
+					String scheduledday = rs.getString("scheduledday");
+					String returnday = rs.getString("returnday");
+					
+					BookHistoryDto1 book = new BookHistoryDto1(email,id,isbn,name,lendday,scheduledday,returnday);
+					
+					result.add(book);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		} 
+
+		// Listを返却する。0件の場合は空のListが返却される。
 		return result;
 	}
 }
