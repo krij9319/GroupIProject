@@ -5,15 +5,18 @@ public class BookDto1 {
 	private String name;
 	private String auther;
 	private String publisher;
+	private String booksitu;
 	private String register_day;
 	
-	public BookDto1(int id, int isbn, String name, String auther, String publisher, String register_day) {
+	public BookDto1(int id, int isbn, String name, String auther, String publisher, String booksitu,
+			String register_day) {
 		super();
 		this.id = id;
 		this.isbn = isbn;
 		this.name = name;
 		this.auther = auther;
 		this.publisher = publisher;
+		this.booksitu = booksitu;
 		this.register_day = register_day;
 	}
 
@@ -55,6 +58,14 @@ public class BookDto1 {
 
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
+	}
+
+	public String getBooksitu() {
+		return booksitu;
+	}
+
+	public void setBooksitu(String booksitu) {
+		this.booksitu = booksitu;
 	}
 
 	public String getRegister_day() {

@@ -38,7 +38,7 @@ public class Dao {
 	}
 	
 	public static int register(BookDto1 book) {
-		String sql = "INSERT INTO book VALUES(DEFAULT,?,?,?,?,NOW())";
+		String sql = "INSERT INTO book VALUES(DEFAULT,?,?,?,?,'貸出可能',NOW())";
 		int result = 0;
 		
 		try (
@@ -441,6 +441,44 @@ public class Dao {
 		} 
 
 		// Listを返却する。0件の場合は空のListが返却される。
+		return result;
+	}
+	
+	public static int booksitu(LendDto2 book2) {
+		String sql = "UPDATE book SET booksitu = '貸出中' WHERE id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	
+	public static int booksitu2(ReturnDto book2) {
+		String sql = "UPDATE book SET booksitu = '貸出可能' WHERE id = ?";
+		int result = 0;
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setInt(1, book2.getBook_id());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException | URISyntaxException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println(result + "件更新しました。");
+		}
 		return result;
 	}
 }
