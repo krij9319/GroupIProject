@@ -33,6 +33,7 @@
 			<td><%=b.getAuther() %></td>
 			<td><%=b.getPublisher() %></td>
             <td><%=b.getRegister_day() %></td>
+            <td><%=b.getBooksitu() %></td>
 		</tr>
 		<%} %>
 		</table>
