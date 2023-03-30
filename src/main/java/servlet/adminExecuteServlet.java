@@ -38,7 +38,7 @@ public class adminExecuteServlet extends HttpServlet {
 		Account account = (Account)session.getAttribute("input_data");
 		
 		// 登録処理
-		int result = AccountDAO.registerAccount(account);
+		int result = AccountDAO.registerAccount2(account);
 		
 		String path = "";
 		if(result == 1) {

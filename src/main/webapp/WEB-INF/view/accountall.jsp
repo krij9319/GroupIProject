@@ -18,7 +18,7 @@
 			<th>名前</th>
 			<th>メールアドレス</th>
 		</tr>
-			<%
+	<%
 	List<Account3> list = (ArrayList<Account3>)request.getAttribute("account");
 	for(Account3 s : list) {
 	%>
@@ -27,8 +27,13 @@
 			<td><%=s.getName() %></td>
 			<td><%=s.getEmail() %></td>
 		</tr>
-	<%} %>
+	<%
+	} 
+	%>
 	</table>
+	</div>
+	<div class="main-end">
+		<a href="ReturnAdmenuServlet">メニューに戻る</a>
 	</div>
 </body>
 </html>
