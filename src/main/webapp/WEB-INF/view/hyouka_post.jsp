@@ -12,7 +12,8 @@
 		if(error != null){
 			
 	%>
-		<h1><p style="color:red">投稿できませんでした</p></h1>
+	<h1>口コミ</h1>
+		<h1 style="color:red">投稿できませんでした</h1>
 		
 		<form action="RegisterHyoukaServlet" method="post">
 			口コミ<br>
@@ -23,6 +24,7 @@
 	<%	
 		} else {
 	%>
+	<h1>口コミ</h1>
 	<form action="RegisterHyoukaServlet" method="post">
 		<textarea name="kuchikomi" rows="10" cols="50" placeholder="口コミを入力"></textarea><br>
 		<input type="submit" value="投稿">
