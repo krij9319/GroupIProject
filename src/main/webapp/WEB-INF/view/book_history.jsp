@@ -14,6 +14,29 @@
 <title>貸出履歴</title>
 </head>
 <body>
+
+<header id="header">
+ 	<p>
+ 	 <img src="./img/グループ 9.png" alt="タイトル" width="400" height="65">
+	</header>
+
+ 	<button type="button" class="menu-btn">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+    
+    <div class="menu">
+      <div class="menu__item"><a href="TopServlet">TOP</a></div>
+      <div class="menu__item"><a href="SelectBookServlet">図書一覧</a></div>
+      <div class="menu__item"><a href="Book_HistoryServlet">履歴</a></div>
+      <div class="menu__item"><a href="LogoutServlet">ログアウト</a></div>
+    </div>
+    
+  <!--メニュー画面-->
+
+  <p> </p><br><br><br><br><br>
+<br><br>
+
+
 	<div class="main">
 		<table id="hyou" border="1" style="width: 800px; font-size: 14px;">
 			<tr>
@@ -42,7 +65,7 @@
 		</table>
 	</div>
 	<div class="main-end">
-		<a href="ReturnMenuServlet">メニューに戻る</a>
+		<div class="back"><a href="ReturnMenuServlet">戻る</a></div>
 	</div>
 	 <script src="./JavaScript/hamburger.js"></script>
 	
