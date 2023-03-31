@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link rel="icon" href="favicon/library.jpg">
 <title>利用者管理者一覧</title>
 </head>
 <body>

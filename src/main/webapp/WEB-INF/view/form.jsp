@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <%@ page import="dto.Account" %>
-<title>Insert title here</title>
-  <link rel ="stylesheet"href="css/index.css">
+<title>利用者登録</title>
+<link rel ="stylesheet"href="css/index.css">
+<link rel="icon" href="favicon/library.jpg">
 </head>
 <body>
 	<div class="login-page">

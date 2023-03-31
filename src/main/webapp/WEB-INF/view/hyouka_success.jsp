@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>投稿完了</title>
+<link rel="icon" href="favicon/library.jpg">
 </head>
 <body>
 <h1>投稿完了!</h1>

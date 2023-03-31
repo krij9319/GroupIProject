@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>管理者登録</title>
 <link rel ="stylesheet"href="css/index.css">
+<link rel="icon" href="favicon/library.jpg">
 </head>
 <body>
 	<div class="login-page">

@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-  <link rel ="stylesheet"href="css/index.css">
+<title>ホーム</title>
+<link rel="icon" href="favicon/library.jpg">
+<link rel ="stylesheet"href="css/index.css">
 </head>
 <body>
 	<div class="login-page">

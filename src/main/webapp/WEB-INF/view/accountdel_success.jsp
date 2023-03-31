@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon/library.jpg">
 <title>削除成功</title>
 </head>
 <body>

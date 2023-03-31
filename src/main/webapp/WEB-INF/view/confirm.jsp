@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="icon" href="favicon/library.jpg">
+<title>登録確認</title>
 </head>
 <body>
 	<p>下記の内容で登録します。よろしいですか？</p>

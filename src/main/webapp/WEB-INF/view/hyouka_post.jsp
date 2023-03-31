@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>口コミ機能</title>
+<link rel="icon" href="favicon/library.jpg">
 </head>
 <body>
 	<% 

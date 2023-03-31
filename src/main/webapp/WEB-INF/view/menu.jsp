@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>トップページ</title>
-
+<link rel="icon" href="favicon/library.jpg">
  <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel ="stylesheet"href="css/menu.css">

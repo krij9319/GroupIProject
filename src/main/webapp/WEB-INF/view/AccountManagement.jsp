@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon/library.jpg">
 <title>メニュー</title>
 <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

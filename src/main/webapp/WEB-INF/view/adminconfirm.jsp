@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicn/library.jpg">
 <title>確認</title>
 </head>
 <body>

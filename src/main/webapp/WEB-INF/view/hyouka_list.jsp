@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon/library.jpg">
 <title>口コミ</title>
 </head>
 <body>
