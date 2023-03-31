@@ -35,12 +35,6 @@
 	<a href="adminFormServlet">
   		<img class="img4" src="./img/画像 5.png" alt="管理者登録">
 	</a>
-
-    <a href="adminlistServlet">
-  		<img class="img5" src="./img/一覧.png" alt="管理者・利用者の一覧">
-	</a>
-	<a href="accountdel">
-
     <a href="AccountAllServlet">
   		<img class="img5" src="./img/一覧.png" alt="管理者・利用者の一覧">
 	</a>
